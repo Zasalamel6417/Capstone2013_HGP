@@ -20,7 +20,7 @@ IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Event
     DROP TABLE [dbo].[Event]
 GO
 CREATE TABLE [dbo].[Event] (
-[eventID] INTEGER  NOT NULL  
+[eventID] INTEGER  IDENTITY  NOT NULL  
 , [artistID] INTEGER  NOT NULL  
 , [venueID] INTEGER  NOT NULL  
 , [name] VARCHAR(50)  NOT NULL  
@@ -41,7 +41,7 @@ IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Disco
     DROP TABLE [dbo].[Discounts]
 GO
 CREATE TABLE [dbo].[Discounts] (
-[discountID] INTEGER  NOT NULL  
+[discountID] INTEGER  IDENTITY  NOT NULL  
 , [discount] VARCHAR(10)  NOT NULL  
 , [value] DECIMAL(10,2)  NOT NULL  
 )
@@ -57,7 +57,7 @@ IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Artis
     DROP TABLE [dbo].[Artist]
 GO
 CREATE TABLE [dbo].[Artist] (
-[artistID] INTEGER  NOT NULL  
+[artistID] INTEGER  IDENTITY  NOT NULL  
 , [name] VARCHAR(30)  NOT NULL  
 )
 GO
@@ -88,7 +88,7 @@ IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Custo
     DROP TABLE [dbo].[Customer]
 GO
 CREATE TABLE [dbo].[Customer] (
-[custID] INTEGER  NOT NULL  
+[custID] INTEGER  IDENTITY  NOT NULL  
 , [email] VARCHAR(50)  NOT NULL  
 , [firstName] VARCHAR(20)  NULL  
 , [lastName] VARCHAR(20)  NULL  
@@ -108,7 +108,7 @@ IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Credi
     DROP TABLE [dbo].[CreditCard]
 GO
 CREATE TABLE [dbo].[CreditCard] (
-[cardID] INTEGER  NOT NULL  
+[cardID] INTEGER  IDENTITY  NOT NULL  
 , [cardNumberHash] VARCHAR(128)  NOT NULL  
 , [cardTypeID] INTEGER  NOT NULL  
 )
@@ -124,7 +124,7 @@ IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Credi
     DROP TABLE [dbo].[CreditCardType]
 GO
 CREATE TABLE [dbo].[CreditCardType] (
-[cardTypeID] INTEGER  NOT NULL  
+[cardTypeID] INTEGER  IDENTITY  NOT NULL  
 , [name] VARCHAR(20)  NOT NULL  
 )
 GO
@@ -139,7 +139,7 @@ IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Venue
     DROP TABLE [dbo].[Venue]
 GO
 CREATE TABLE [dbo].[Venue] (
-[venueID] INTEGER  NOT NULL  
+[venueID] INTEGER  IDENTITY  NOT NULL  
 , [name] VARCHAR(50)  NOT NULL  
 , [addressID] INTEGER  NOT NULL  
 , [phone] INTEGER  NOT NULL  
@@ -157,7 +157,7 @@ IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Secti
     DROP TABLE [dbo].[Section]
 GO
 CREATE TABLE [dbo].[Section] (
-[sectionID] INTEGER  NOT NULL  
+[sectionID] INTEGER  IDENTITY  NOT NULL  
 , [venueID] INTEGER  NOT NULL  
 , [sectionTypeID] INTEGER  NOT NULL  
 , [name] CHAR(10)  NULL  
@@ -175,7 +175,7 @@ IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[State
     DROP TABLE [dbo].[StateProvince]
 GO
 CREATE TABLE [dbo].[StateProvince] (
-[stateProvID] INTEGER  NOT NULL  
+[stateProvID] INTEGER  IDENTITY  NOT NULL  
 , [statProvCode] CHAR(2)  NOT NULL  
 , [regionCode] CHAR(2)  NOT NULL  
 , [name] CHAR(10)  NOT NULL  
@@ -211,7 +211,7 @@ IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Secti
     DROP TABLE [dbo].[SectionType]
 GO
 CREATE TABLE [dbo].[SectionType] (
-[sectionTypeID] INTEGER  NOT NULL  
+[sectionTypeID] INTEGER  IDENTITY  NOT NULL  
 , [name] VARCHAR(15)  NOT NULL  
 )
 GO
@@ -226,7 +226,7 @@ IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Addre
     DROP TABLE [dbo].[Address]
 GO
 CREATE TABLE [dbo].[Address] (
-[addressID] INTEGER  NOT NULL  
+[addressID] INTEGER  IDENTITY  NOT NULL  
 , [address1] VARCHAR(20)  NOT NULL  
 , [address2] VARCHAR(20)  NULL  
 , [city] CHAR(10)  NOT NULL  
@@ -245,7 +245,7 @@ IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Addre
     DROP TABLE [dbo].[AddressType]
 GO
 CREATE TABLE [dbo].[AddressType] (
-[addressTypeID] INTEGER  NOT NULL  
+[addressTypeID] INTEGER  IDENTITY  NOT NULL  
 , [name] CHAR(10)  NOT NULL  
 )
 GO
@@ -260,7 +260,7 @@ IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Order
     DROP TABLE [dbo].[Orders]
 GO
 CREATE TABLE [dbo].[Orders] (
-[orderID] INTEGER  NOT NULL  
+[orderID] INTEGER  IDENTITY  NOT NULL  
 , [custID] INTEGER  NOT NULL  
 , [orderTotal] DECIMAL(10,2)  NOT NULL  
 , [isPickup] BIT  NOT NULL  
