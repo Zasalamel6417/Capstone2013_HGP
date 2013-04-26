@@ -89,7 +89,7 @@ IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Custo
 GO
 CREATE TABLE [dbo].[Customer] (
 [custID] INTEGER  IDENTITY  NOT NULL  
-, [email] VARCHAR(50)  NOT NULL  
+, [email] NVARCHAR(256)  NOT NULL  
 , [firstName] VARCHAR(20)  NULL  
 , [lastName] VARCHAR(20)  NULL  
 , [age] INTEGER  NULL  
