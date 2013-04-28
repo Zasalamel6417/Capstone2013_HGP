@@ -25,7 +25,9 @@
             <div class="content-wrapper">
                 <div class="float-left">
                     <p class="site-title">
-                        <a runat="server" href="~/"><img alt="logo" src="Images/logo-full.png" /></a>
+                        <a runat="server" href="~/">
+                            <asp:Image runat="server" ImageUrl="~/Images/logo-full.png" AlternateText="Home Grown Productions"/>
+                        </a>
                     </p>
                 </div>
                 <div class="float-right">
