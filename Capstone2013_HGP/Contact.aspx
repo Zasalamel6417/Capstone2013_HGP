@@ -2,7 +2,7 @@
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <hgroup class="title">
-        <h1><%: Title %>.</h1>
+        <h1><%: Title %></h1>
         <h2>Your contact page.</h2>
     </hgroup>
 
@@ -11,11 +11,11 @@
             <h3>Phone:</h3>
         </header>
         <p>
-            <span class="label">Main:</span>
+            <span class="label">Customer Service:</span>
             <span>425.555.0100</span>
         </p>
         <p>
-            <span class="label">After Hours:</span>
+            <span class="label">Booking:</span>
             <span>425.555.0199</span>
         </p>
     </section>
@@ -25,11 +25,11 @@
             <h3>Email:</h3>
         </header>
         <p>
-            <span class="label">Support:</span>
+            <span class="label">Customer Support:</span>
             <span><a href="mailto:Support@example.com">Support@example.com</a></span>
         </p>
         <p>
-            <span class="label">Marketing:</span>
+            <span class="label">Marketing and Booking:</span>
             <span><a href="mailto:Marketing@example.com">Marketing@example.com</a></span>
         </p>
         <p>
@@ -40,11 +40,11 @@
 
     <section class="contact">
         <header>
-            <h3>Address:</h3>
+            <h3>Office:</h3>
         </header>
         <p>
-            One Microsoft Way<br />
-            Redmond, WA 98052-6399
+            One Crescendolls Drive<br />
+            Nashville, TN 37212
         </p>
     </section>
 </asp:Content>
