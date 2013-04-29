@@ -17,15 +17,16 @@ namespace Capstone2013_HGP
 			//    consumerKey: "your Twitter consumer key",
 			//    consumerSecret: "your Twitter consumer secret");
 
-			//OpenAuth.AuthenticationClients.AddFacebook(
-			//    appId: "your Facebook app id",
-			//    appSecret: "your Facebook app secret");
+			OpenAuth.AuthenticationClients.AddFacebook(
+				appId: "163287753832694",
+				appSecret: "0822dd29d6cc81dbcdd8768e89592924",
+				extraData: new { Icon = "../Images/facebook.png" });
 
 			//OpenAuth.AuthenticationClients.AddMicrosoft(
 			//    clientId: "your Microsoft account client id",
 			//    clientSecret: "your Microsoft account client secret");
 
-			//OpenAuth.AuthenticationClients.AddGoogle();
+			OpenAuth.AuthenticationClients.AddGoogle(extraData: new { Icon = "../Images/google.png" });
 		}
 	}
 }
