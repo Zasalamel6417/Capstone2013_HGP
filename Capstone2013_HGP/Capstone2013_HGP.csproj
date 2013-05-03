@@ -113,6 +113,8 @@
     <Content Include="App_Data\aspnet-Capstone2013_HGP-20130420133751_log.ldf">
       <DependentUpon>ASPNET-CAPSTONE2013_HGP-20130420133751.MDF</DependentUpon>
     </Content>
+    <Content Include="App_Data\HGP_CAPSTONE.mdf" />
+    <Content Include="App_Data\HGP_CAPSTONE_log.ldf" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
