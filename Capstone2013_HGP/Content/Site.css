@@ -13,6 +13,8 @@ body {
     margin: 0;
     padding: 0;
 }
+/*My Sections and Article styles*/
+
 
 a {
     color: #333;
@@ -298,13 +300,16 @@ ol.round {
         }
 
         ol.round li.nine {
-            background: url("../Images/orderedList9.png") no-repeat;
-        }
+            background: url("../Images/orderedList9.png") nnno-repeat;
 
 /* content */
 article {
     float: left;
     width: 70%;
+    margin-top: 0px;
+}
+
+70%;
 }
 
 aside {
@@ -392,19 +397,18 @@ fieldset {
 
     label {
         display: block;
-        font-size: 1.2em;
-        font-weight: 600;
-    }
-
-    label.checkbox {
-        display: inline;
-    }
+        font-s
 
     input, textarea {
         border: 1px solid #e2e2e2;
         background: #fff;
         color: #333;
         font-size: 1.2em;
+        margin: 5px 0 6px 0;
+        padding: 5px;
+        }
+
+    ize: 1.2em;
         margin: 5px 0 6px 0;
         padding: 5px;
         width: 300px;
@@ -420,10 +424,7 @@ fieldset {
         }
 
         input[type="checkbox"] {
-            background: transparent;
-            border: inherit;
-            width: auto;
-        }
+            back
         
     input[type="submit"],
     input[type="button"],
@@ -433,6 +434,11 @@ fieldset {
         cursor: pointer;
         font-size: 1.2em;
         font-weight: 600;
+        padding: 7px;
+        margin-right: 8px;
+        }
+
+    
         padding: 7px;
         margin-right: 8px;
         width: auto;
@@ -730,5 +736,6 @@ tr.pager td {
         footer p {
             margin: 0;
         }
+
 }
 /* END: Mobile Styles */

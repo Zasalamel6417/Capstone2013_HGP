@@ -13,5 +13,52 @@ namespace Capstone2013_HGP
         {
 
         }
+
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DropDownList1.SelectedValue == "Make A Selection")
+            {
+                
+
+                lblevents.Visible = false;
+                txtevents.Visible = false;
+                btnsearch.Visible = false;
+
+                lbltickets.Visible = false;
+                DropDownTickets.Visible = false;
+
+
+
+
+            }
+            if (DropDownList1.SelectedValue == "Event Name")
+            {
+                lblevents.Visible = true;
+                txtevents.Visible = true;
+                btnsearch.Visible = true;
+                txtevents.Focus();
+
+                ;
+                lbltickets.Visible = false;
+                DropDownTickets.Visible = false;
+
+
+
+            }
+            if (DropDownList1.SelectedValue == "Ticket Range")
+            {
+                lbltickets.Visible = true;
+                DropDownTickets.Visible = true;
+                btnsearch.Visible = true;
+
+                
+                lblevents.Visible = false;
+                txtevents.Visible = false;
+
+            }
+        }
+
+       
+
     }
 }
