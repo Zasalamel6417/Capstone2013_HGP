@@ -36,6 +36,7 @@ a {
 header, footer, hgroup,
 nav, section {
     display: block;
+    height: 131px;
 }
 
 mark {
