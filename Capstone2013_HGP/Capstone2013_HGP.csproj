@@ -173,7 +173,6 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
-    <Content Include="Events.aspx" />
     <Content Include="ExpressCheckoutSuccess.aspx" />
     <Content Include="hgpshortlogo.ico" />
     <Content Include="Images\accent.png" />
@@ -446,13 +445,6 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Events.aspx.cs">
-      <DependentUpon>Events.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Events.aspx.designer.cs">
-      <DependentUpon>Events.aspx</DependentUpon>
     </Compile>
     <Compile Include="ExpressCheckoutSuccess.aspx.cs">
       <DependentUpon>ExpressCheckoutSuccess.aspx</DependentUpon>
