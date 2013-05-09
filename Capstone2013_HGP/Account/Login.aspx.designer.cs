@@ -7,29 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Capstone2013_HGP.Account
-{
-
-
-	public partial class Login
-	{
-
-		/// <summary>
-		/// RegisterHyperLink control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.HyperLink RegisterHyperLink;
-
-		/// <summary>
-		/// OpenAuthLogin control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::Capstone2013_HGP.Account.OpenAuthProviders OpenAuthLogin;
-	}
+namespace Capstone2013_HGP.Account {
+    
+    
+    public partial class Login {
+        
+        /// <summary>
+        /// RegisterHyperLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink RegisterHyperLink;
+        
+        /// <summary>
+        /// OpenAuthLogin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Capstone2013_HGP.Account.OpenAuthProviders OpenAuthLogin;
+    }
 }
