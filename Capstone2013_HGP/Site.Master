@@ -63,11 +63,14 @@
         <div id="body">
             <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
             <section class="content-wrapper main-content clear-fix">
-                <asp:ContentPlaceHolder runat="server" ID="MainContent" />
+                <asp:ContentPlaceHolder runat="server" ID="MainContent" >
+                    <p>
+                        &nbsp;</p>
+                </asp:ContentPlaceHolder>
             </section>
         </div>
         <footer>
-            <div class="content-wrapper">
+            <div class="MainContent">
                 <div class="float-left">
                     <p>&copy; <%: DateTime.Now.Year %> - Home Grown Productions</p>
                 </div>
