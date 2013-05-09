@@ -7,7 +7,7 @@
     </hgroup>
     <section id="loginForm">
         <h2>Use a local account to log in.</h2>
-        <asp:Login runat="server" ViewStateMode="Disabled" RenderOuterTable="false">
+        <asp:Login ID="Login1" runat="server" ViewStateMode="Disabled" RenderOuterTable="false" OnLoggedIn="Login1_LoggedIn">
             <LayoutTemplate>
                 <p class="validation-summary-errors">
                     <asp:Literal runat="server" ID="FailureText" />
@@ -22,7 +22,7 @@
                         </li>
                         <li>
                             <asp:Label runat="server" AssociatedControlID="Password">Password</asp:Label>
-                            <asp:TextBox runat="server" ID="Password" TextMode="Password" />
+                            <asp:TextBox runat="server" ID="Password" TextMode="Password" Width="132px" />
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" CssClass="field-validation-error" ErrorMessage="The password field is required." />
                         </li>
                         <li>
