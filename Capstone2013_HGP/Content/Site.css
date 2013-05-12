@@ -107,6 +107,7 @@ h5, h6 {
         /*background: url("../Images/accent.png") no-repeat;*/
         padding-left: 10px;
         padding-top: 30px;
+        min-height:400px;
     }
 
 /*    .featured + .main-content {
@@ -407,8 +408,7 @@ fieldset {
         font-size: 1.2em;
         margin: 5px 0 6px 0;
         padding: 5px;
-        width: 23px;
-    }
+        }
 
     textarea {
         font-family: inherit;
@@ -435,8 +435,7 @@ fieldset {
         font-weight: 600;
         padding: 7px;
         margin-right: 8px;
-        width: auto;
-    }
+        }
 
     td input[type="submit"],
     td input[type="button"],
@@ -503,10 +502,14 @@ input[type="checkbox"].input-validation-error {
 /* tables
 ----------------------------------------------------------*/
 table {
+    border-style: none;
+    border-color: inherit;
+    border-width: 0;
     border-collapse: collapse;
     border-spacing: 0;
     margin-top: 0.75em;
-    border: 0 none;
+    font-weight: 700;
+    margin-left: 0px;
 }
 
 th {
@@ -716,10 +719,10 @@ tr.pager td {
 
     /* footer
     ----------------------------------------------------------*/
-    footer .float-left,
+    /*footer .float-left,
     footer .float-right {
         float: none;
-    }
+    }*/
 
     footer {
         text-align: center;

@@ -70,10 +70,8 @@
             </section>
         </div>
         <footer>
-            <div class="MainContent">
-                <div class="float-left">
+            <div>
                     <p>&copy; <%: DateTime.Now.Year %> - Home Grown Productions</p>
-                </div>
             </div>
         </footer>
     </form>

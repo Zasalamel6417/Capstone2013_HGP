@@ -3,13 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
-    <section class="featured">
-        <div class="content-wrapper">
-        </div>
-    </section>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
-    <section style="position: absolute; right: 2px; width: 780px; top: 200px; text-align: justify">
+    <section style="left: 2px; width: 1200px; top: 200px; text-align: justify">
         <fieldset>
             <legend>Search By:</legend>
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
@@ -23,7 +19,7 @@
                     <asp:Label ID="lblevents" runat="server" Font-Bold="True" Text="Event Name:" Visible="False"></asp:Label>
                     <asp:TextBox ID="txtevents" runat="server" Height="15px" Visible="False" Width="143px"></asp:TextBox>
                     <asp:Label ID="lbltickets" runat="server" Font-Bold="True" Text="Price Range:" Visible="False"></asp:Label>
-                    <asp:DropDownList ID="DropDownTickets" runat="server" Visible="False">
+                    <asp:DropDownList ID="DropDownTickets" runat="server" OnSelectedIndexChanged="DropDownTickets_SelectedIndexChanged" AutoPostBack="True" Visible="False">
                         <asp:ListItem>$1.00-$10.00</asp:ListItem>
                         <asp:ListItem>$11.00-$20.00</asp:ListItem>
                         <asp:ListItem>$21.00-$30.00</asp:ListItem>
@@ -31,24 +27,26 @@
                         <asp:ListItem>$41.00-$50.00</asp:ListItem>
                         <asp:ListItem>$50.00 or Above</asp:ListItem>
                     </asp:DropDownList>
-                    <asp:Button ID="btnsearch" runat="server" BackColor="#33CCFF" Height="31px" Text="Search" Visible="False" Width="125px" OnClick="btnsearch_Click" /><br />
+                    <asp:Button ID="btnsearch" runat="server" BackColor="#33CCFF" Height="32px" Text="Search" Visible="False" Width="152px" OnClick="btnsearch_Click" /><br />
                     <asp:Label ID="lblerror" runat="server" ForeColor="Red"></asp:Label>
+                    
 
                 </ContentTemplate>
                 <Triggers>
                     <asp:AsyncPostBackTrigger ControlID="DropDownsb" />
+                    <asp:AsyncPostBackTrigger ControlID="DropDownTickets" />
                 </Triggers>
             </asp:UpdatePanel>
         </fieldset>
     </section>
-    <section style="position: absolute; left: 50px; width: 850px; top: 260px; text-align: justify">
+    <section style="left: 150px; width: 1500px; top: 260px; text-align: justify">
         <asp:UpdatePanel ID="UPPGrid" runat="server">
             <ContentTemplate>
-
-                <asp:GridView ID="GridSearch" runat="server" OnSelectedIndexChanged="GridSearch_SelectedIndexChanged" CellPadding="4" ForeColor="#333333" GridLines="None">
+                <p></p>
+                <asp:GridView ID="GridSearch" runat="server" OnSelectedIndexChanged="GridSearch_SelectedIndexChanged" CellPadding="4" ForeColor="#333333" GridLines="None" Width="750px" AllowPaging="True" OnPageIndexChanging="GridSearch_PageIndexChanging">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
-                        <asp:ButtonField ButtonType="Button" CommandName="Edit" HeaderText="Buy" ShowHeader="True" Text="Purchase" />
+                        <asp:CommandField HeaderText="Buy" SelectText="Purchase" ShowSelectButton="True" />
                     </Columns>
                     <EditRowStyle BackColor="#2461BF" />
                     <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -61,10 +59,10 @@
                     <SortedDescendingCellStyle BackColor="#E9EBEF" />
                     <SortedDescendingHeaderStyle BackColor="#4870BE" />
                 </asp:GridView>
-
                 </section>
             </ContentTemplate>
         </asp:UpdatePanel>
 
     </section>
+
 </asp:Content>
