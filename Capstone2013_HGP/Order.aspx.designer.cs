@@ -10,33 +10,24 @@
 namespace Capstone2013_HGP {
     
     
-    public partial class Order {
+    public partial class Order1 {
         
         /// <summary>
-        /// radPaypal control.
+        /// dvInfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton radPaypal;
+        protected global::System.Web.UI.WebControls.DetailsView dvInfo;
         
         /// <summary>
-        /// radCredit control.
+        /// SqlDataSource1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton radCredit;
-        
-        /// <summary>
-        /// btnPay control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPay;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
     }
 }
