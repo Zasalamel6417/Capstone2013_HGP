@@ -175,10 +175,14 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="ExpressCheckoutSuccess.aspx" />
     <Content Include="hgpshortlogo.ico" />
+    <Content Include="Images\Kid_Rock.jpg" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\bullet.png" />
+    <Content Include="Images\control_left.jpg" />
+    <Content Include="Images\control_right.jpg" />
     <Content Include="Images\facebook.png" />
     <Content Include="Images\heroAccent.png" />
+    <Content Include="Images\j_timberlake1_300_400.jpg" />
     <Content Include="Images\logo-full.png" />
     <Content Include="Images\logo-short.png" />
     <Content Include="Images\orderedList0.png" />
@@ -192,6 +196,8 @@
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
     <Content Include="Images\google.png" />
+    <Content Include="Images\Taylor_Swift.jpg" />
+    <Content Include="Images\Tim-McGraw-Tour.jpg" />
     <Content Include="Order.aspx" />
     <Content Include="packages.config" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
