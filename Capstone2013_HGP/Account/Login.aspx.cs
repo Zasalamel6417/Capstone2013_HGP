@@ -29,9 +29,9 @@ namespace Capstone2013_HGP.Account
             // please don't use User.IsInRole here , because it will not be populated yet at this stage.
             //This should redirect to the appropriate page depending on the username login.
             if (Roles.IsUserInRole(Login1.UserName, "Agent"))
-                Response.Redirect("~/Default.aspx");
+                Response.Redirect("~/Events.aspx");
             else if (Roles.IsUserInRole(Login1.UserName, "Manager"))
-                Response.Redirect("~/Account/Manage.aspx");
+                Response.Redirect("~/Manager.aspx");
         }
 	}
 }

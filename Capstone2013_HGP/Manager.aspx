@@ -29,7 +29,7 @@
                     </asp:DropDownList>
                     <asp:Button ID="btnsearch" runat="server" BackColor="#33CCFF" Height="32px" Text="Search" Visible="False" Width="152px" OnClick="btnsearch_Click" /><br />
                     <asp:Label ID="lblerror" runat="server" ForeColor="Red"></asp:Label>
-                    
+
 
                 </ContentTemplate>
                 <Triggers>
@@ -59,7 +59,30 @@
                     <SortedDescendingCellStyle BackColor="#E9EBEF" />
                     <SortedDescendingHeaderStyle BackColor="#4870BE" />
                 </asp:GridView>
-                </section>
+                <br />
+                <br />
+                <asp:GridView ID="GridVenue" runat="server" AllowPaging="True" AllowSorting="True" CellPadding="4" AutoGenerateColumns="False" DataSourceID="VenueReservation">
+                    <Columns>
+                        <asp:CommandField HeaderText="Reserve Seats" SelectText="Reserve" ShowSelectButton="True" />
+                        <asp:BoundField DataField="name" HeaderText="Artist" SortExpression="name" />
+                        <asp:BoundField DataField="Expr1" HeaderText="Event" SortExpression="Expr1" />
+                        <asp:BoundField DataField="Expr2" HeaderText="Venue" SortExpression="Expr2" />
+                        <asp:BoundField DataField="Expr3" HeaderText="Section" SortExpression="Expr3" />
+                    </Columns>
+                    <EditRowStyle BackColor="#2461BF" />
+                    <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="#EFF3FB" />
+                    <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                    <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                    <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                    <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                    <SortedDescendingHeaderStyle BackColor="#4870BE" />
+                </asp:GridView>
+                <asp:SqlDataSource ID="VenueReservation" runat="server" ConnectionString="<%$ ConnectionStrings:CapstoneSQLConn %>" SelectCommand="SELECT Artist.name, Event.name AS Expr1, Venue.name AS Expr2, Section.name AS Expr3 FROM Event INNER JOIN Venue ON Event.venueID = Venue.venueID INNER JOIN Artist ON Event.artistID = Artist.artistID INNER JOIN Section ON Venue.venueID = Section.venueID"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
+                <br />
             </ContentTemplate>
         </asp:UpdatePanel>
 
