@@ -23,7 +23,7 @@ namespace Capstone2013_HGP.Account
 			string continueUrl = RegisterUser.ContinueDestinationPageUrl;
 			if (!OpenAuth.IsLocalUrl(continueUrl))
 			{
-				continueUrl = "~/";
+				continueUrl = "~/Account/UserInfo.aspx";
 			}
 			Response.Redirect(continueUrl);
 		}
