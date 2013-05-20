@@ -5,7 +5,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
     <h1>Thank you!</h1> 
-    <p> Thank you for your order,<%=User.Identity.Name%>, I hope you enjoy the event for which you've purchased tickets for.
+    <p> Thank you for your order, <%=User.Identity.Name%>, I hope you enjoy the event for which you've purchased tickets for.
         Remember to check out the many up coming events for others you would like to attend! Take a second to review your order
         and remember we've sent the same information in an email that we have on file for your account!
     </p>
@@ -22,11 +22,11 @@
             <asp:BoundField DataField="quantity" HeaderText="Quantity:" SortExpression="quantity" />
             <asp:BoundField DataField="orderTotal" DataFormatString="{0:c}" HeaderText="Total:" SortExpression="orderTotal" />
         </Fields>
-
     </asp:DetailsView>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CapstoneSQLConn %>" SelectCommand="SELECT Orders.orderID, Orders.orderDateTime, Event.name AS EventName, Artist.name AS ArtistName, Customer.firstName + ' ' + Customer.lastName AS Customer, Discounts.discount, Discounts.value AS DiscountPercent, OrderDetail.quantity, Orders.orderTotal FROM Orders INNER JOIN OrderDetail ON Orders.orderID = OrderDetail.orderID INNER JOIN Event ON OrderDetail.eventID = Event.eventID INNER JOIN Customer ON Orders.custID = Customer.custID INNER JOIN Artist ON Event.artistID = Artist.artistID INNER JOIN Discounts ON Orders.discountID = Discounts.discountID WHERE (Orders.orderDateTime = (SELECT MAX(orderDateTime) AS Expr1 FROM Orders AS Orders_1)) AND (Customer.custID = @custID)">
         <SelectParameters>
             <asp:QueryStringParameter DefaultValue="0" Name="custID" QueryStringField="custID" />
         </SelectParameters>
     </asp:SqlDataSource>
+    <asp:Button runat="server" ID="btnFinish" Text="Finish" OnClick="btnFinish_Click"/>
 </asp:Content>

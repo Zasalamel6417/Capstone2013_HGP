@@ -147,6 +147,13 @@ namespace Capstone2013_HGP
 
         protected void btnPay_Click(object sender, EventArgs e)
         {
+			MembershipUser mu = Membership.GetUser();
+			SqlConnection sqlConn = new SqlConnection(connStr);
+			SqlCommand sqlCmd = new SqlCommand("SELECT custID FROM Customer WHERE email=@email", sqlConn);
+			sqlCmd.Parameters.Add(new SqlParameter("@email", mu.Email));
+			sqlConn.Open();
+			int custID = ((int)sqlCmd.ExecuteScalar());
+
             if (radPaypal.Checked)
             {
                 PayPalAPIAAInterfaceClient paypalAAInt = new PayPalAPIAAInterfaceClient();
@@ -164,17 +171,19 @@ namespace Capstone2013_HGP
                 sdt.NoShipping = "1";
                 PaymentDetailsType pdt = new PaymentDetailsType()
                 {
-                    OrderDescription = "Payment Details Sushant",
+					OrderDescription = "HGP Event Ticket Purchase: " + dvOrderInfo.Rows[2].Cells[1].Text,
                     OrderTotal = new BasicAmountType()
                     {
                         currencyID = CurrencyCodeType.USD,
-                        Value = "100.00"
-                    }
+                        Value = Convert.ToDecimal(Regex.Replace(txtDetailTotal.Text, "[^0-9.]", "")).ToString()
+                    },
+					PaymentAction = PaymentActionCodeType.Sale,
+					PaymentActionSpecified = true,
                 };
 
                 sdt.PaymentDetails = new PaymentDetailsType[] { pdt };
                 sdt.CancelURL = hosting + "Default.aspx";
-                sdt.ReturnURL = hosting + "ExpressCheckoutSuccess.aspx";
+				sdt.ReturnURL = hosting + "ThankYou.aspx?custID=" + custID.ToString();
 
                 SetExpressCheckoutReq req = new SetExpressCheckoutReq()
                 {
@@ -193,18 +202,20 @@ namespace Capstone2013_HGP
                         resp.Errors[0].LongMessage);
                 }
 
+				SubmitOrder(Convert.ToInt32(ddlDiscount.SelectedValue));
+
                 Response.Redirect(string.Format("{0}?cmd=_express-checkout&token={1}",
                     ConfigurationManager.AppSettings["PayPalSubmitUrl"], resp.Token));
             }
 
             if (radCredit.Checked)
             {
-                MembershipUser mu = Membership.GetUser();
-                SqlConnection sqlConn = new SqlConnection(connStr);
-                SqlCommand sqlCmd = new SqlCommand("SELECT custID FROM Customer WHERE email=@email", sqlConn);
-                sqlCmd.Parameters.Add(new SqlParameter("@email", mu.Email));
-                sqlConn.Open();
-                int custID = ((int)sqlCmd.ExecuteScalar());
+				//MembershipUser mu = Membership.GetUser();
+				//SqlConnection sqlConn = new SqlConnection(connStr);
+				//SqlCommand sqlCmd = new SqlCommand("SELECT custID FROM Customer WHERE email=@email", sqlConn);
+				//sqlCmd.Parameters.Add(new SqlParameter("@email", mu.Email));
+				//sqlConn.Open();
+				//int custID = ((int)sqlCmd.ExecuteScalar());
 
                 if (txtCCNumber.Text != "" && txtSecCode.Text != "" && txtExpDate.Text != "" && txtNameOnCard.Text != "")
                 {

@@ -246,7 +246,7 @@
                 <tr>
                     <td><span>Name on Card:</span></td>
                     <td><asp:TextBox runat="server" ID="txtNameOnCard" Columns="35" />
-                        <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txtNameOnCard" Display="Dynamic" ErrorMessage="*Name Cannot Contain Numbers" ForeColor="Red" ValidationExpression="^[a-zA-Z]+$" ValidationGroup="UserInfoVal"></asp:RegularExpressionValidator>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txtNameOnCard" Display="Dynamic" ErrorMessage="*Name Cannot Contain Numbers" ForeColor="Red" ValidationExpression="^[a-zA-Z\s]+$" ValidationGroup="UserInfoVal"></asp:RegularExpressionValidator>
                     </td>
                 </tr>
             </table>
