@@ -3,20 +3,18 @@
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <hgroup class="title">
         <h1><%: Title %></h1>
-        <h2> Home Grown Productions</h2>
+        <h2>Home Grown Productions</h2>
     </hgroup>
 
     <article>
         <p>        
-            Use this area to provide additional information.
+            Home Grown Productions is a company based around the needs and desires of the customer. HGP brings the artists you want to the cities you want.
+            Their focus is to make our customers as happy as possible, representing the artists with respect, and keeping the venues safe and secure. HGP was founded because we were tired of seeing
+            people constantly having to plan long road trips to see the artist they love to support. 
         </p>
 
         <p>        
-            Use this area to provide additional information.
-        </p>
-
-        <p>        
-            Use this area to provide additional information.
+            Please refer to the contact page if you have any questions regarding Home Grown Productions or any event that is listed.
         </p>
     </article>
 
