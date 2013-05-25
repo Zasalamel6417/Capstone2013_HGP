@@ -200,6 +200,9 @@
     <Content Include="Images\google.png" />
     <Content Include="Images\Taylor_Swift.jpg" />
     <Content Include="Images\Tim-McGraw-Tour.jpg" />
+    <Content Include="Manager\Confirm.aspx" />
+    <Content Include="Manager\Manager.aspx" />
+    <Content Include="Manager\Reserve.aspx" />
     <Content Include="Order.aspx" />
     <Content Include="OrderInformation.aspx" />
     <Content Include="Order_Old.aspx" />
@@ -481,6 +484,27 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Manager\Confirm.aspx.cs">
+      <DependentUpon>Confirm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Confirm.aspx.designer.cs">
+      <DependentUpon>Confirm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Manager.aspx.cs">
+      <DependentUpon>Manager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Manager.aspx.designer.cs">
+      <DependentUpon>Manager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Reserve.aspx.cs">
+      <DependentUpon>Reserve.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Reserve.aspx.designer.cs">
+      <DependentUpon>Reserve.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Order.aspx.cs">
       <DependentUpon>Order.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -565,6 +589,7 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\PayPalAPI\" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
