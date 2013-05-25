@@ -8,7 +8,6 @@ using System.Data.SqlClient;
 using System.Configuration;
 using Capstone2013_HGP.PayPalAPI;
 using System.Text.RegularExpressions;
-using System.Data.SqlClient;
 using System.Web.Security;
 using System.Data;
 
@@ -58,8 +57,15 @@ namespace Capstone2013_HGP
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            //Get Logged in user
             MembershipUser mu = Membership.GetUser();
 
+            //If the page is not a postback, Get the time check if it's less than 7 days.
+            //If so, don't display the pickup check box.
+            //Get total cost from hidden Details View, set it in the SessionProperty.
+            //Set subTotal SessionProperty
+            //Determine whether user is a member.
             if (!IsPostBack)
             {
                 DateTime startDate = DateTime.Parse(dvOrderInfo.Rows[9].Cells[1].Text);
@@ -82,6 +88,7 @@ namespace Capstone2013_HGP
                 Label lblTax = ((Label)dvOrderInfo.FindControl("lblTax"));
                 Label lblSubTotal = ((Label)dvOrderInfo.FindControl("lblSubTotal"));
 
+                //Calculate tax and subtotal
                 taxCost = (cost * tax);
                 subTotal = ((cost * tax) + cost);
 
@@ -89,6 +96,7 @@ namespace Capstone2013_HGP
                 SubTotal = subTotal.ToString();
                 SessionTax = taxCost.ToString();
 
+                //Set each value for the order.
                 lblTax.Text = taxCost.ToString("C");
                 lblSubTotal.Text = subTotal.ToString("C");
 
@@ -99,6 +107,7 @@ namespace Capstone2013_HGP
                 txtDetailTax.Text = taxCost.ToString("C");
                 txtDetailSubTotal.Text = subTotal.ToString("C");
 
+                //If user exists, Determin if the user is a member. If so, set the discount recieved to 15%
                 if (mu != null)
                 {
                     txtEmail.Text = mu.Email;
@@ -129,6 +138,7 @@ namespace Capstone2013_HGP
                 }
             }
 
+            //If the page is postback, depending on the RadioButton pressed, keep the Credit Card Div displayed or Hidden.
             if (IsPostBack)
             {
                 if (radCredit.Checked)
@@ -145,6 +155,12 @@ namespace Capstone2013_HGP
             //radPaypal.Attributes.Add("onmouseup", "HideDiv()");
         }
 
+        /// <summary>
+        /// On click, this will get the users email, and get their unique custID. Depending on the radio button checked, it will either send the user to PayPal with order information.
+        /// Or, it will verify the CreditCard entered into the CCNumber Text Box is in fact a Valid Credit Card.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnPay_Click(object sender, EventArgs e)
         {
 			MembershipUser mu = Membership.GetUser();
@@ -217,8 +233,11 @@ namespace Capstone2013_HGP
 				//sqlConn.Open();
 				//int custID = ((int)sqlCmd.ExecuteScalar());
 
+                //Check if text boxes are empty
+                //Server side validation best way when using two checkout methods.
                 if (txtCCNumber.Text != "" && txtSecCode.Text != "" && txtExpDate.Text != "" && txtNameOnCard.Text != "")
                 {
+                    //If creditcard is valid, submit the order to the database and send user to the ThankYou page.
                     if (IsCardNumberValid(txtCCNumber.Text))
                     {
                         SubmitOrder(Convert.ToInt32(ddlDiscount.SelectedValue));
@@ -237,10 +256,16 @@ namespace Capstone2013_HGP
             }
         }
 
+        /// <summary>
+        /// If the discount selected is changed, recalculate taxes and total. If user is not a member, they will be able to, and then it will add $5 and re calculate taxes and total.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void ddlDiscount_SelectedIndexChanged(object sender, EventArgs e)
         {
             double subTotal = Convert.ToDouble(SubTotal);
 
+            //SelectedIndex 1 = Senior, SelectedIdex 2 = Student
             if (ddlDiscount.SelectedIndex == 1 || ddlDiscount.SelectedIndex == 2)
             {
                 double totalCost = (subTotal - (subTotal * 0.10));
@@ -251,6 +276,7 @@ namespace Capstone2013_HGP
                 txtDetailTotal.Text = totalCost.ToString("C");
             }
 
+            //Selected Index 0 = No Discount
             if (ddlDiscount.SelectedIndex == 0)
             {
                 double totalCost = (subTotal + (subTotal * 0.10));
@@ -260,6 +286,7 @@ namespace Capstone2013_HGP
                 txtDetailTotal.Text = subTotal.ToString("C");
             }
 
+            //SelectedIndex 3 = Member/Become Member
             if (ddlDiscount.SelectedIndex == 3)
             {
                 double cost = Convert.ToDouble(totalCost);
@@ -274,6 +301,11 @@ namespace Capstone2013_HGP
             }
         }
 
+        /// <summary>
+        /// Checks to see if the credit card is valid
+        /// </summary>
+        /// <param name="cardNumber">String from the txtCCNumber text box</param>
+        /// <returns>True if valid, false if not</returns>
         public static bool IsCardNumberValid(string cardNumber)
         {
             int i, checkSum = 0;
@@ -298,6 +330,10 @@ namespace Capstone2013_HGP
             return ((checkSum % 10) == 0);
         }
 
+        /// <summary>
+        /// Submit the order to the server. Add each element to the order and order details table.
+        /// </summary>
+        /// <param name="discountID">Discount given at checkout.</param>
         void SubmitOrder(int discountID)
         {
 

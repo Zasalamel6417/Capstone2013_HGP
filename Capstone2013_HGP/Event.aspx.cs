@@ -25,9 +25,11 @@ namespace Capstone2013_HGP
 
         protected void gvEvents_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-
+            //Get ASP member user
             MembershipUser mu = Membership.GetUser();
 
+            //If user is not null, meaning the user is logged in, it will redirect to the Order Information page.
+            //Else go to the login page.
             if (mu != null)
             {
                 if (e.CommandName == "Select")
@@ -42,7 +44,11 @@ namespace Capstone2013_HGP
                 Response.Redirect("~/Account/Login.aspx");
             }
         }
-
+        /// <summary>
+        /// Depending on the selection, you can search for a event based on event name or Range of Tickets. It will change the search option based on what you select in the dropdown.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void DropDownsb_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (DropDownsb.SelectedValue == "Make A Selection")
@@ -87,7 +93,11 @@ namespace Capstone2013_HGP
             }
         }
 
-
+        /// <summary>
+        /// This will change the GridView data based on the range you select in the DropDown.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void DropDownTickets_SelectedIndexChanged(object sender, EventArgs e)
         {
             string connectionstring2 = ConfigurationManager.ConnectionStrings["CapstoneSQLConn"].ConnectionString;
@@ -234,7 +244,12 @@ namespace Capstone2013_HGP
 
             }
         }
-
+        
+        /// <summary>
+        /// Clicking this will search based on the critera you have chosen eith in the search box, or by ticket range.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnsearch_Click(object sender, EventArgs e)
         {
             string connectionstring2 = ConfigurationManager.ConnectionStrings["CapstoneSQLConn"].ConnectionString;
