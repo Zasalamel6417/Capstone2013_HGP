@@ -147,7 +147,7 @@ namespace Capstone2013_HGP.Manager
                 SqlConnection connect2 = new SqlConnection(connectionstring2);
                 SqlCommand cmd = new SqlCommand(selectsql2, connect2);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                DataSet ds2 = new DataSet();
+                var ds2 = new DataSet();
                 adapter.Fill(ds2);
                 gvEvents.DataSource = ds2;
                 gvEvents.DataBind();
