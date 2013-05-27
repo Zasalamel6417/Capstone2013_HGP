@@ -275,11 +275,31 @@ namespace Capstone2013_HGP.Manager
                     lblerror.Text = "";
                 }
             }
+        }
 
+        protected void gvReservation_PageIndexChanged(object sender, EventArgs e)
+        {
+            gvReservation.SelectedIndex = -1;
+        }
 
+        protected void gvReservation_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
 
+            MembershipUser mu = Membership.GetUser();
 
-
+            if (mu != null)
+            {
+                if (e.CommandName == "Select")
+                {
+                    int index = Convert.ToInt32(e.CommandArgument);
+                    GridViewRow row = gvReservation.Rows[index];
+                    Response.Redirect("~/Manager/Reserve.aspx?EventID=" + row.Cells[1].Text.ToString() + "&sectionID=" + row.Cells[9].Text.ToString());
+                }
+            }
+            else
+            {
+                Response.Redirect("~/Account/Login.aspx");
+            }
         }
     }
 }

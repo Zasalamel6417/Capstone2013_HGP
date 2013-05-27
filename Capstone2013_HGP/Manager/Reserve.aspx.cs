@@ -18,7 +18,7 @@ namespace Capstone2013_HGP.Manager
             if (!IsPostBack)
             {
                 //Take the number of tickets in the DetailsView and set it to numAvail.
-                numAvail = Convert.ToInt32(dvInfo.Rows[14].Cells[1].Text);
+                numAvail = Convert.ToInt32(dvReservationInfo.Rows[14].Cells[1].Text);
 
                 //If numAvail is lessthan or equal to 0, don't let the user make the order.
                 if (numAvail <= 0)
@@ -41,9 +41,9 @@ namespace Capstone2013_HGP.Manager
             if (mu != null)
             {
 
-                string eventID = dvInfo.Rows[0].Cells[1].Text;
+                string eventID = dvReservationInfo.Rows[0].Cells[1].Text;
                 int quantity = Convert.ToInt32(txtQty.Text);
-                numAvail = Convert.ToInt32(dvInfo.Rows[14].Cells[1].Text);
+                numAvail = Convert.ToInt32(dvReservationInfo.Rows[14].Cells[1].Text);
 
                 if (quantity > numAvail)
                 {
@@ -51,7 +51,7 @@ namespace Capstone2013_HGP.Manager
                 }
                 else
                 {
-                    Response.Redirect("~/Order.aspx?EventId=" + eventID + "&Qty=" + quantity.ToString() + "&sectionID=" + dvInfo.Rows[11].Cells[1].Text);
+                    Response.Redirect("~/Order.aspx?EventId=" + eventID + "&Qty=" + quantity.ToString() + "&sectionID=" + dvReservationInfo.Rows[11].Cells[1].Text);
                 }
             }
             else

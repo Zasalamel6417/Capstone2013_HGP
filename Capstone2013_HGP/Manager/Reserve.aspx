@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
-    <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" DataSourceID="dv_Reserve" Height="50px" Width="125px">
+    <asp:DetailsView ID="dvReservationInfo" runat="server" AutoGenerateRows="False" DataSourceID="dv_Reserve" Height="50px" Width="125px">
         <Fields>
             <asp:BoundField DataField="eventID" HeaderText="eventID" SortExpression="eventID" />
             <asp:BoundField DataField="Artist" HeaderText="Artist" SortExpression="Artist" />

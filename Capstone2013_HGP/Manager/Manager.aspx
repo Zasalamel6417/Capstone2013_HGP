@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
- <h1><%: Title %></h1>
+    <h1><%: Title %></h1>
     <br />
     <br />
                     <asp:Label ID="lblsearchby" runat="server">Search By:</asp:Label>
@@ -63,7 +63,7 @@
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CapstoneSQLConn %>" SelectCommand="SELECT * FROM [Event_View]"></asp:SqlDataSource>
     <br />
     <br />
-    <asp:GridView ID="gvReservation" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="gvReserve">
+    <asp:GridView ID="gvReservation" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="gvReserve" OnSelectedIndexChanged="gvReservation_SelectedIndexChanged">
         <Columns>
             <asp:CommandField ButtonType="Button" SelectText="Reserve" ShowSelectButton="True" />
             <asp:BoundField DataField="name" HeaderText="Artist" SortExpression="name" />
