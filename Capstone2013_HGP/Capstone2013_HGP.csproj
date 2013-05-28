@@ -112,6 +112,7 @@
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
     <Content Include="Account\UserInfo.aspx" />
+    <Content Include="Agent\Agent.aspx" />
     <Content Include="App_Data\ASPNET-CAPSTONE2013_HGP-20130420133751.MDF" />
     <Content Include="App_Data\aspnet-Capstone2013_HGP-20130420133751_log.ldf">
       <DependentUpon>ASPNET-CAPSTONE2013_HGP-20130420133751.MDF</DependentUpon>
@@ -208,6 +209,7 @@
     <Content Include="Order_Old.aspx" />
     <Content Include="packages.config" />
     <Content Include="Manager\Web.config" />
+    <Content Include="Agent\Web.config" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -410,6 +412,13 @@
     <Compile Include="Account\UserInfo.aspx.designer.cs">
       <DependentUpon>UserInfo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Agent\Agent.aspx.cs">
+      <DependentUpon>Agent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Agent\Agent.aspx.designer.cs">
+      <DependentUpon>Agent.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\AuthConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -590,9 +599,7 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\PayPalAPI\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Agent\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
