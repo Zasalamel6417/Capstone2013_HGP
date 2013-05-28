@@ -277,15 +277,17 @@ namespace Capstone2013_HGP.Manager
             }
         }
 
-        protected void gvReservation_PageIndexChanged(object sender, EventArgs e)
+       /* protected void gvReservation_PageIndexChanged(object sender, EventArgs e)
         {
             gvReservation.SelectedIndex = -1;
-        }
+        }*/
 
         protected void gvReservation_RowCommand(object sender, GridViewCommandEventArgs e)
         {
 
-            MembershipUser mu = Membership.GetUser();
+            Response.Redirect("~/Manager/Reserve.aspx");
+
+          /*  MembershipUser mu = Membership.GetUser();
 
             if (mu != null)
             {
@@ -299,7 +301,7 @@ namespace Capstone2013_HGP.Manager
             else
             {
                 Response.Redirect("~/Account/Login.aspx");
-            }
+            } */
         }
     }
 }

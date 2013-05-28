@@ -63,14 +63,17 @@
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CapstoneSQLConn %>" SelectCommand="SELECT * FROM [Event_View]"></asp:SqlDataSource>
     <br />
     <br />
-    <asp:GridView ID="gvReservation" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="gvReserve" OnSelectedIndexChanged="gvReservation_SelectedIndexChanged">
+    <asp:GridView ID="gvReservation" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataSourceID="gvReserve" OnRowCommand="gvEvents_RowCommand" DataKeyNames="eventID">
         <Columns>
             <asp:CommandField ButtonType="Button" SelectText="Reserve" ShowSelectButton="True" />
-            <asp:BoundField DataField="name" HeaderText="Artist" SortExpression="name" />
-            <asp:BoundField DataField="Expr1" HeaderText="Event" SortExpression="Expr1" />
-            <asp:BoundField DataField="Expr2" HeaderText="Venue" SortExpression="Expr2" />
-            <asp:BoundField DataField="Expr3" HeaderText="Section" SortExpression="Expr3" />
-            <asp:BoundField DataField="Expr4" HeaderText="Area" SortExpression="Expr4" />
+            <asp:BoundField DataField="eventID" HeaderText="Event Number" SortExpression="eventID" />
+            <asp:BoundField DataField="Artist" HeaderText="Artist" SortExpression="Artist" />
+            <asp:BoundField DataField="EventName" HeaderText="Event" SortExpression="EventName" />
+            <asp:BoundField DataField="VenueName" HeaderText="Venue" SortExpression="VenueName" />
+            <asp:BoundField DataField="SectionNumber" HeaderText="Section Number" SortExpression="SectionNumber" />
+            <asp:BoundField DataField="Section" HeaderText="Section" SortExpression="Section" />
+            <asp:BoundField DataField="TicketPrice" HeaderText="Price" SortExpression="TicketPrice" />
+            <asp:BoundField DataField="TicketsAvailable" HeaderText="Tickets Available" ReadOnly="True" SortExpression="TicketsAvailable" />
         </Columns>       
         <EditRowStyle BackColor="#2461BF" />
         <FooterStyle BackColor="#a4d4e6" Font-Bold="True" ForeColor="White" />
@@ -83,6 +86,6 @@
         <SortedDescendingCellStyle BackColor="#E9EBEF" />
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
     </asp:GridView>
-    <asp:SqlDataSource ID="gvReserve" runat="server" ConnectionString="<%$ ConnectionStrings:CapstoneSQLConn %>" SelectCommand="SELECT Artist.name, Event.name AS Expr1, Venue.name AS Expr2, Section.name AS Expr3, SectionType.name AS Expr4 FROM SectionType INNER JOIN Section ON SectionType.sectionTypeID = Section.sectionTypeID INNER JOIN Venue ON Section.venueID = Venue.venueID INNER JOIN Artist INNER JOIN Event ON Artist.artistID = Event.artistID ON Venue.venueID = Event.venueID"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="gvReserve" runat="server" ConnectionString="<%$ ConnectionStrings:CapstoneSQLConn %>" SelectCommand="SELECT * FROM [Reserve_Details]"></asp:SqlDataSource>
     </asp:Content>
 

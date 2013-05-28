@@ -31,7 +31,7 @@ namespace Capstone2013_HGP.Account
             if (Roles.IsUserInRole(Login1.UserName, "Agent"))
                 Response.Redirect("~/Default.aspx");
             else if (Roles.IsUserInRole(Login1.UserName, "Manager"))
-                Response.Redirect("~/Account/Manage.aspx");
+                Response.Redirect("~/Manager/Manager.aspx");
         }
 	}
 }

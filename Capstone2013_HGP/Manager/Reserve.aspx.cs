@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
@@ -29,10 +32,6 @@ namespace Capstone2013_HGP.Manager
                     lblStatus.Text = "There are no more tickets Available for this event.";
                 }
             }
-        }
-
-        protected void btnReserve_Click(object sender, EventArgs e)
-        {
 
             //Get logged in user
             MembershipUser mu = Membership.GetUser();
@@ -51,13 +50,29 @@ namespace Capstone2013_HGP.Manager
                 }
                 else
                 {
-                    Response.Redirect("~/Order.aspx?EventId=" + eventID + "&Qty=" + quantity.ToString() + "&sectionID=" + dvReservationInfo.Rows[11].Cells[1].Text);
+                    Response.Redirect("~/Manager/Reserve.aspx?EventId=" + eventID + "&Qty=" + quantity.ToString() + "&sectionID=" + dvReservationInfo.Rows[11].Cells[1].Text);
                 }
             }
             else
             {
                 Response.Redirect("~/Account/Login.aspx");
             }
+        }
+
+        protected void btnReserve_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["CapstoneSQLConn"].ToString()))
+            {
+                using(SqlCommand cmd = new SqlCommand("reserveTiks", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@quantity", SqlDbType.Int).Value = Convert.ToInt32(txtQty);
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
+
         }
     }
 }

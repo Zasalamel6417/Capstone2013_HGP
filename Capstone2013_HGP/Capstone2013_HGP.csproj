@@ -207,6 +207,7 @@
     <Content Include="OrderInformation.aspx" />
     <Content Include="Order_Old.aspx" />
     <Content Include="packages.config" />
+    <Content Include="Manager\Web.config" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -589,7 +590,9 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\PayPalAPI\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Agent\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
