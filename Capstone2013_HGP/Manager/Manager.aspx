@@ -63,7 +63,7 @@
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CapstoneSQLConn %>" SelectCommand="SELECT * FROM [Event_View]"></asp:SqlDataSource>
     <br />
     <br />
-    <asp:GridView ID="gvReservation" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataSourceID="gvReserve" OnRowCommand="gvEvents_RowCommand" DataKeyNames="eventID">
+    <asp:GridView ID="gvReservation" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataSourceID="gvReserve" OnRowCommand="gvReservation_RowCommand" DataKeyNames="eventID">
         <Columns>
             <asp:CommandField ButtonType="Button" SelectText="Reserve" ShowSelectButton="True" />
             <asp:BoundField DataField="eventID" HeaderText="Event Number" SortExpression="eventID" />
