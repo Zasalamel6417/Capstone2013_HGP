@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
-    <asp:DetailsView ID="dvReservationInfo" runat="server" AutoGenerateRows="False" DataKeyNames="eventID" DataSourceID="dv_Reserve" Height="50px" Width="125px">
+    <asp:DetailsView ID="dvReservationInfo" runat="server" AutoGenerateRows="False" DataSourceID="dv_Reserve" Height="50px" Width="125px">
         <Fields>
             <asp:BoundField DataField="eventID" HeaderText="eventID" SortExpression="eventID" />
             <asp:BoundField DataField="Artist" HeaderText="Artist" SortExpression="Artist" />
@@ -19,8 +19,8 @@
     </asp:DetailsView>
     <asp:SqlDataSource ID="dv_Reserve" runat="server" ConnectionString="<%$ ConnectionStrings:CapstoneSQLConn %>" SelectCommand="SELECT * FROM [Reserve_Details] WHERE ([eventID] = @eventID) AND ([SectionNumber] = @sectionID)">
         <SelectParameters>
-            <asp:ControlParameter ControlID="dvReservationInfo" Name="eventID" PropertyName="SelectedValue" />
-            <asp:ControlParameter ControlID="dvReservationInfo" Name="sectionID" PropertyName="SelectedValue" />
+            <asp:QueryStringParameter DefaultValue="0" Name="eventID" QueryStringField="EventID" Type="Int32" />
+            <asp:QueryStringParameter Name="sectionID" QueryStringField="SectionID" />
         </SelectParameters>
     </asp:SqlDataSource>
     <br />

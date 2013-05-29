@@ -277,10 +277,10 @@ namespace Capstone2013_HGP.Manager
             }
         }
 
-       /* protected void gvReservation_PageIndexChanged(object sender, EventArgs e)
+       protected void gvReservation_PageIndexChanged(object sender, EventArgs e)
         {
             gvReservation.SelectedIndex = -1;
-        }*/
+        }
 
         protected void gvReservation_RowCommand(object sender, GridViewCommandEventArgs e)
         {
@@ -295,7 +295,7 @@ namespace Capstone2013_HGP.Manager
                 {
                     int index = Convert.ToInt32(e.CommandArgument);
                     GridViewRow row = gvReservation.Rows[index];
-                    Response.Redirect("~/Manager/Reserve.aspx?EventID=" + row.Cells[1].Text.ToString() + "&sectionID=" + row.Cells[4].Text.ToString());
+                    Response.Redirect("~/Manager/Reserve.aspx?EventID=" + row.Cells[1].Text.ToString() + "&sectionID=" + row.Cells[5].Text.ToString());
                 }
             }
             else

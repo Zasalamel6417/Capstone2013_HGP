@@ -18,7 +18,7 @@ namespace Capstone2013_HGP.Manager
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+           /* if (!IsPostBack)
             {
                numAvail = Convert.ToInt32(dvReservationInfo.Rows[8].Cells[1].Text);
 
@@ -28,6 +28,21 @@ namespace Capstone2013_HGP.Manager
                     btnReserve.Enabled = false;
                     btnReserve.Visible = false;
                     lblStatus.Text = "There are no more tickets Available for this event.";
+                }
+            } */
+
+        }
+
+        protected void btnReserve_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["CapstoneSQLConn"].ToString()))
+            {
+                using(SqlCommand cmd = new SqlCommand("reserveTiks", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@quantity", SqlDbType.Int).Value = Convert.ToInt32(txtQty.Text);
+                    con.Open();
+                    cmd.ExecuteNonQuery();
                 }
             }
 
@@ -46,26 +61,12 @@ namespace Capstone2013_HGP.Manager
                 }
                 else
                 {
-                    Response.Redirect("~/Manager/Reserve.aspx?EventId=" + eventID + "&Qty=" + quantity.ToString() + "&sectionID=" + dvReservationInfo.Rows[11].Cells[1].Text);
+                    Response.Redirect("~/Manager/Confirm.aspx?EventId=" + eventID + "&Qty=" + quantity.ToString() + "&sectionID=" + dvReservationInfo.Rows[11].Cells[1].Text);
                 }
             }
             else
             {
                 Response.Redirect("~/Account/Login.aspx");
-            }
-        }
-
-        protected void btnReserve_Click(object sender, EventArgs e)
-        {
-            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["CapstoneSQLConn"].ToString()))
-            {
-                using(SqlCommand cmd = new SqlCommand("reserveTiks", con))
-                {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add("@quantity", SqlDbType.Int).Value = Convert.ToInt32(txtQty);
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                }
             }
 
 
