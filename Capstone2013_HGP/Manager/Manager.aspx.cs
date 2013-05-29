@@ -285,9 +285,9 @@ namespace Capstone2013_HGP.Manager
         protected void gvReservation_RowCommand(object sender, GridViewCommandEventArgs e)
         {
 
-            Response.Redirect("~/Manager/Reserve.aspx");
+           // Response.Redirect("~/Manager/Reserve.aspx");
 
-          /*  MembershipUser mu = Membership.GetUser();
+          MembershipUser mu = Membership.GetUser();
 
             if (mu != null)
             {
@@ -295,13 +295,13 @@ namespace Capstone2013_HGP.Manager
                 {
                     int index = Convert.ToInt32(e.CommandArgument);
                     GridViewRow row = gvReservation.Rows[index];
-                    Response.Redirect("~/Manager/Reserve.aspx?EventID=" + row.Cells[1].Text.ToString() + "&sectionID=" + row.Cells[9].Text.ToString());
+                    Response.Redirect("~/Manager/Reserve.aspx?EventID=" + row.Cells[1].Text.ToString() + "&sectionID=" + row.Cells[4].Text.ToString());
                 }
             }
             else
             {
                 Response.Redirect("~/Account/Login.aspx");
-            } */
+            }
         }
     }
 }
