@@ -20,10 +20,8 @@ namespace Capstone2013_HGP.Manager
         {
             if (!IsPostBack)
             {
-                //Take the number of tickets in the DetailsView and set it to numAvail.
-                numAvail = Convert.ToInt32(dvReservationInfo.Rows[14].Cells[1].Text);
+               numAvail = Convert.ToInt32(dvReservationInfo.Rows[8].Cells[1].Text);
 
-                //If numAvail is lessthan or equal to 0, don't let the user make the order.
                 if (numAvail <= 0)
                 {
                     txtQty.Visible = false;
@@ -33,10 +31,8 @@ namespace Capstone2013_HGP.Manager
                 }
             }
 
-            //Get logged in user
             MembershipUser mu = Membership.GetUser();
 
-            //If user exists, then get the event ID and quantity and send the customer to the OrderPage.
             if (mu != null)
             {
 
