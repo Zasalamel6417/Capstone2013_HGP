@@ -18,18 +18,19 @@ namespace Capstone2013_HGP.Manager
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           /* if (!IsPostBack)
-            {
-               numAvail = Convert.ToInt32(dvReservationInfo.Rows[8].Cells[1].Text);
+            /* if (!IsPostBack)
+             {
+             * Textbox avail = dvReservationInfo.Rows[8].Cells[1].Controls[0] as TextBox;
+                numAvail = Convert.ToInt32(avail);
 
-                if (numAvail <= 0)
-                {
-                    txtQty.Visible = false;
-                    btnReserve.Enabled = false;
-                    btnReserve.Visible = false;
-                    lblStatus.Text = "There are no more tickets Available for this event.";
-                }
-            } */
+                 if (numAvail <= 0)
+                 {
+                     txtQty.Visible = false;
+                     btnReserve.Enabled = false;
+                     btnReserve.Visible = false;
+                     lblStatus.Text = "There are no more tickets Available for this event.";
+                 }
+             } */
 
         }
 
@@ -50,10 +51,11 @@ namespace Capstone2013_HGP.Manager
 
             if (mu != null)
             {
-
-                string eventID = dvReservationInfo.Rows[0].Cells[1].Text;
+                Response.Redirect("~/Manager/Confirm.aspx");
+              /*  string eventID = dvReservationInfo.Rows[0].Cells[1].Text;
                 int quantity = Convert.ToInt32(txtQty.Text);
-                numAvail = Convert.ToInt32(dvReservationInfo.Rows[14].Cells[1].Text);
+                TextBox avail = dvReservationInfo.Rows[7].Cells[1].Controls[0] as TextBox;
+                numAvail = Convert.ToInt32(avail);
 
                 if (quantity > numAvail)
                 {
@@ -61,8 +63,8 @@ namespace Capstone2013_HGP.Manager
                 }
                 else
                 {
-                    Response.Redirect("~/Manager/Confirm.aspx?EventId=" + eventID + "&Qty=" + quantity.ToString() + "&sectionID=" + dvReservationInfo.Rows[11].Cells[1].Text);
-                }
+                    Response.Redirect("~/Manager/Confirm.aspx?EventId=" + eventID + "&Qty=" + quantity.ToString() + "&sectionID=" + dvReservationInfo.Rows[4].Cells[1].Text);
+                }*/
             }
             else
             {
