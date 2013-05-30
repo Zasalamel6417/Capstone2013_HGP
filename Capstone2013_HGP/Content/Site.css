@@ -634,6 +634,7 @@ tr.pager td {
         padding-right: 10px;
         padding-left: 10px;
     }
+   
 
     .featured .content-wrapper {
         padding: 10px;
@@ -707,6 +708,9 @@ tr.pager td {
         float: none;
         width: auto;
     }
+
+    
+
 
     /* footer
     ----------------------------------------------------------*/
