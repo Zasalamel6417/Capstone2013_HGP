@@ -15,29 +15,45 @@ namespace Capstone2013_HGP.Agent
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            ddlCustomer.Visible = false;
-            txtFName.Visible = false;
-            txtLName.Visible = false;
-            txtAddress.Visible = false;
-            txtAdd2.Visible = false;
-            txtCity.Visible = false;
-            txtState.Visible = false;
-            txtZip.Visible = false;
-            txtEmail.Visible = false;
+            pnlExist.Visible = false;
+            pnlNew.Visible = false;
 
             if (!IsPostBack)
             {
                 //Take the number of tickets in the DetailsView and set it to numAvail.
-                numAvail = Convert.ToInt32(dvInfo.Rows[14].Cells[1].Text);
+               // numAvail = Convert.ToInt32(dvInfo.Rows[14].Cells[1].Text);
 
                 //If numAvail is lessthan or equal to 0, don't let the user make the order.
-                if (numAvail <= 0)
+               /* if (numAvail <= 0)
                 {
                     txtQty.Visible = false;
                     btnOrder.Enabled = false;
                     btnOrder.Visible = false;
                     lblStatus.Text = "There are no more tickets Available for this event.";
+                }*/
+            }
+
+            if (IsPostBack)
+            {
+                if (radExist.Checked)
+                {
+                    exist.Attributes["style"] = "display: block;";
                 }
+                else
+                {
+                    exist.Attributes["style"] = "display: none;";
+                }
+
+                if (radNew.Checked)
+                {
+                    newCust.Attributes["style"] = "display: block;";
+                }
+                else
+                {
+                    newCust.Attributes["style"] = "display: none;";
+                }
+
+
             }
         }
 
@@ -72,19 +88,16 @@ namespace Capstone2013_HGP.Agent
 
         protected void chkMbr_CheckedChanged(object sender, EventArgs e)
         {
-            ddlCustomer.Visible = true;
+            pnlExist.Visible = true;
+            if (!chkMbr.Checked)
+            {
+                pnlExist.Visible = false;
+            }
         }
 
         protected void chkNew_CheckedChanged(object sender, EventArgs e)
         {
-            txtFName.Visible = true;
-            txtLName.Visible = true;
-            txtAddress.Visible = true;
-            txtAdd2.Visible = true;
-            txtCity.Visible = true;
-            txtState.Visible = true;
-            txtZip.Visible = true;
-            txtEmail.Visible = true;
+            pnlNew.Visible = true;
         }
     }
 }
