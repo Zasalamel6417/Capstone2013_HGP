@@ -113,6 +113,7 @@
     <Content Include="Account\RegisterExternalLogin.aspx" />
     <Content Include="Account\UserInfo.aspx" />
     <Content Include="Agent\Agent.aspx" />
+    <Content Include="Agent\CustomerOrder.aspx" />
     <Content Include="App_Data\ASPNET-CAPSTONE2013_HGP-20130420133751.MDF" />
     <Content Include="App_Data\aspnet-Capstone2013_HGP-20130420133751_log.ldf">
       <DependentUpon>ASPNET-CAPSTONE2013_HGP-20130420133751.MDF</DependentUpon>
@@ -418,6 +419,13 @@
     </Compile>
     <Compile Include="Agent\Agent.aspx.designer.cs">
       <DependentUpon>Agent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Agent\CustomerOrder.aspx.cs">
+      <DependentUpon>CustomerOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Agent\CustomerOrder.aspx.designer.cs">
+      <DependentUpon>CustomerOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\AuthConfig.cs" />
     <Compile Include="About.aspx.cs">
