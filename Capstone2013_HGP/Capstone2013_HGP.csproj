@@ -177,6 +177,9 @@
     <Content Include="Event.aspx" />
     <Content Include="ExpressCheckoutSuccess.aspx" />
     <Content Include="hgpshortlogo.ico" />
+    <Content Include="Images\172-pricetag.png" />
+    <Content Include="Images\63-runner.png" />
+    <Content Include="Images\73-radar.png" />
     <Content Include="Images\Kid_Rock.jpg" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\bullet.png" />
