@@ -98,10 +98,6 @@
             background-color: lightcyan;
         }
     </style>
-    <div id="headone">
-
-        <h1><u>Click</u> or <u>Hover</u> over The below Given Topics.</h1>
-    </div>
 
     <div id="headerone1">
         <h2><i>How Do I purchase A Ticket?</i></h2>
