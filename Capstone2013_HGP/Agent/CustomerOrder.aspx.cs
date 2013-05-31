@@ -35,23 +35,23 @@ namespace Capstone2013_HGP.Agent
 
             if (IsPostBack)
             {
-                //if (radExist.Checked)
-                //{
-                //    exist.Attributes["style"] = "display: block;";
-                //}
-                //else
-                //{
-                //    exist.Attributes["style"] = "display: none;";
-                //}
+                if (radExist.Checked)
+                {
+                    exist.Attributes["style"] = "display: block;";
+                }
+                else
+                {
+                    exist.Attributes["style"] = "display: none;";
+                }
 
-                //if (radNew.Checked)
-                //{
-                //    newCust.Attributes["style"] = "display: block;";
-                //}
-                //else
-                //{
-                //    newCust.Attributes["style"] = "display: none;";
-                //}
+                if (radNew.Checked)
+                {
+                    newCust.Attributes["style"] = "display: block;";
+                }
+                else
+                {
+                    newCust.Attributes["style"] = "display: none;";
+                }
 
 
             }
