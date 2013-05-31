@@ -31,12 +31,12 @@
                 <tr>
                     <td><span>First Name:</span></td>
                     <td><asp:TextBox runat="server" ID="txtFirstName" ValidationGroup="UserInfoVal" />
-                        <asp:RequiredFieldValidator ID="reqFNameVal" runat="server" ControlToValidate="txtFirstName" Display="Dynamic" ErrorMessage="First Name is recquired" ForeColor="Red" ValidationGroup="UserInfoVal">*</asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="reqFNameVal" runat="server" ControlToValidate="txtFirstName" Display="Dynamic" ErrorMessage="First Name is required" ForeColor="Red" ValidationGroup="UserInfoVal">*</asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txtFirstName" Display="Dynamic" ErrorMessage="First Name cannot contain numbers." ForeColor="Red" ValidationExpression="^[a-zA-Z]+$" ValidationGroup="UserInfoVal">*</asp:RegularExpressionValidator>
                     </td>
                     <td><span>Last Name:</span></td>
                     <td><asp:TextBox runat="server" ID="txtLastName" ValidationGroup="UserInfoVal" />
-                        <asp:RequiredFieldValidator ID="reqLNameVal" runat="server" ControlToValidate="txtLastName" Display="Dynamic" ErrorMessage="Last Name is recquired" ForeColor="Red" ValidationGroup="UserInfoVal">*</asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="reqLNameVal" runat="server" ControlToValidate="txtLastName" Display="Dynamic" ErrorMessage="Last Name is required" ForeColor="Red" ValidationGroup="UserInfoVal">*</asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="txtLastName" Display="Dynamic" ErrorMessage="Last Name cannot contain numbers." ForeColor="Red" ValidationExpression="^[a-zA-Z]+$" ValidationGroup="UserInfoVal">*</asp:RegularExpressionValidator>
                     </td>
                 </tr>
@@ -53,7 +53,7 @@
                 <tr>
                     <td><span>Address:</span></td>
                     <td><asp:TextBox runat="server" ID="txtAddress1" ValidationGroup="UserInfoVal" />
-                        <asp:RequiredFieldValidator ID="reqAddress1Val" runat="server" ControlToValidate="txtAddress1" ErrorMessage="Address is recquired" ForeColor="Red" ValidationGroup="UserInfoVal">*</asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="reqAddress1Val" runat="server" ControlToValidate="txtAddress1" ErrorMessage="Address is required" ForeColor="Red" ValidationGroup="UserInfoVal">*</asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -63,18 +63,18 @@
                 <tr>
                     <td><span>City:</span></td>
                     <td><asp:TextBox runat="server" ID="txtCity" ValidationGroup="UserInfoVal" />
-                        <asp:RequiredFieldValidator ID="reqLNameVal2" runat="server" ControlToValidate="txtCity" Display="Dynamic" ErrorMessage="City is recquired" ForeColor="Red" ValidationGroup="UserInfoVal">*</asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="reqLNameVal2" runat="server" ControlToValidate="txtCity" Display="Dynamic" ErrorMessage="City is required" ForeColor="Red" ValidationGroup="UserInfoVal">*</asp:RequiredFieldValidator>
                     </td>
                     <td><span>State:</span></td>
                     <td><asp:TextBox runat="server" ID="txtState" Columns="2" MaxLength="2" ValidationGroup="UserInfoVal" />
-                        <asp:RequiredFieldValidator ID="reqLNameVal3" runat="server" ControlToValidate="txtState" Display="Dynamic" ErrorMessage="Last Name is recquired" ForeColor="Red" ValidationGroup="UserInfoVal">*</asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="reqLNameVal3" runat="server" ControlToValidate="txtState" Display="Dynamic" ErrorMessage="State is required" ForeColor="Red" ValidationGroup="UserInfoVal">*</asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ControlToValidate="txtState" Display="Dynamic" ErrorMessage="State is not recognized." ForeColor="Red" ValidationExpression="^((AL)|(AK)|(AS)|(AZ)|(AR)|(CA)|(CO)|(CT)|(DE)|(DC)|(FM)|(FL)|(GA)|(GU)|(HI)|(ID)|(IL)|(IN)|(IA)|(KS)|(KY)|(LA)|(ME)|(MH)|(MD)|(MA)|(MI)|(MN)|(MS)|(MO)|(MT)|(NE)|(NV)|(NH)|(NJ)|(NM)|(NY)|(NC)|(ND)|(MP)|(OH)|(OK)|(OR)|(PW)|(PA)|(PR)|(RI)|(SC)|(SD)|(TN)|(TX)|(UT)|(VT)|(VI)|(VA)|(WA)|(WV)|(WI)|(WY))$" ValidationGroup="UserInfoVal">*</asp:RegularExpressionValidator>
                     </td>
                 </tr>
                 <tr>
                     <td><span>Zip Code:</span></td>
                     <td><asp:TextBox runat="server" ID="txtZipcode" Columns="5" MaxLength="5" ValidationGroup="UserInfoVal" />
-                        <asp:RequiredFieldValidator ID="reqLNameVal4" runat="server" ControlToValidate="txtState" Display="Dynamic" ErrorMessage="Zip Code is recquired" ForeColor="Red" ValidationGroup="UserInfoVal">*</asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="reqLNameVal4" runat="server" ControlToValidate="txtState" Display="Dynamic" ErrorMessage="Zip Code is required" ForeColor="Red" ValidationGroup="UserInfoVal">*</asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="txtZipcode" Display="Dynamic" ErrorMessage="Please enter valid Zip Code." ForeColor="Red" ValidationExpression="\d{5}(-\d{4})?" ValidationGroup="UserInfoVal">*</asp:RegularExpressionValidator>
                     </td>
                 </tr>

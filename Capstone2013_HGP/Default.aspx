@@ -16,37 +16,37 @@
 
             // Wrap all .slides with #slideInner div
             slides
-              .wrapAll('<div id="slideInner"></div>')
-              // Float left to display horizontally, readjust .slides width
-              .css({
-                  'float': 'left',
-                  'width': slideWidth
-              });
+			  .wrapAll('<div id="slideInner"></div>')
+			  // Float left to display horizontally, readjust .slides width
+			  .css({
+			      'float': 'left',
+			      'width': slideWidth
+			  });
 
             // Set #slideInner width equal to total width of all slides
             $('#slideInner').css('width', slideWidth * numberOfSlides);
 
             // Insert controls in the DOM
             $('#slideshow')
-              .prepend('<span class="control" id="leftControl">Clicking moves left</span>')
-              .append('<span class="control" id="rightControl">Clicking moves right</span>');
+			  .prepend('<span class="control" id="leftControl">Clicking moves left</span>')
+			  .append('<span class="control" id="rightControl">Clicking moves right</span>');
 
             // Hide left arrow control on first load
             manageControls(currentPosition);
 
             // Create event listeners for .controls clicks
             $('.control')
-              .bind('click', function () {
-                  // Determine new position
-                  currentPosition = ($(this).attr('id') == 'rightControl') ? currentPosition + 1 : currentPosition - 1;
+			  .bind('click', function () {
+			      // Determine new position
+			      currentPosition = ($(this).attr('id') == 'rightControl') ? currentPosition + 1 : currentPosition - 1;
 
-                  // Hide / show controls
-                  manageControls(currentPosition);
-                  // Move slideInner using margin-left
-                  $('#slideInner').animate({
-                      'marginLeft': slideWidth * (-currentPosition)
-                  });
-              });
+			      // Hide / show controls
+			      manageControls(currentPosition);
+			      // Move slideInner using margin-left
+			      $('#slideInner').animate({
+			          'marginLeft': slideWidth * (-currentPosition)
+			      });
+			  });
 
             // manageControls: Hides and Shows controls depending on currentPosition
             function manageControls(position) {
@@ -120,33 +120,104 @@
         }
 
         /**
-    Column Styles
+	Column Styles
 */
-        #howtoWrapper
+        /*#howtoWrapper
+		{
+			text-align: center;
+		}
+
+		#howtoLeft
+		{
+			float: left;
+			position: relative;
+			max-width: 320px;
+			min-width: 240px;
+		}
+
+		#howtoRight
+		{
+			float: right;
+			max-width: 320px;
+			min-width: 240px;
+			position: relative;
+		}
+
+		#howtoCenter
+		{
+			float: left;
+			position: relative;
+			max-width: 320px;
+			min-width: 240px;
+		}*/
+
+        /* column container */
+        .colmask
         {
+            position: relative; /* This fixes the IE7 overflow hidden bug */
+            clear: both;
             text-align: center;
+            float: left;
+            width: 100%; /* width of whole page */
+            /*overflow: hidden;*/ /* This chops off any overhanging divs */
+        }
+        /* common column settings */
+        .colright,
+        .colmid,
+        .colleft
+        {
+            float: left;
+            width: 100%; /* width of page */
+            position: relative; 
         }
 
-        #howtoLeft
+        .col1,
+        .col2,
+        .col3
         {
             float: left;
             position: relative;
-            width: 25%;
+            padding: 0 0 1em 0; /* no left and right padding on columns, we just make them narrower instead 
+					only padding top and bottom is included here, make it whatever value you need */
+            overflow: hidden;
+        }
+        /* 3 Column settings */
+        .threecol
+        {
+            background: #EFEEEF; /* right column background colour */
         }
 
-        #howtoRight
-        {
-            float: right;
-            display: inline;
-            width: 25%;
-        }
+            .threecol .colmid
+            {
+                right: 33.3%; /* width of the right column */
+                background: #EFEEEF; /* center column background colour */
+            }
 
-        #howtoCenter
-        {
-            float: left;
-            position: relative;
-            width: 25%;
-        }
+            .threecol .colleft
+            {
+                right: 33.4%; /* width of the middle column */
+                background: #EFEEEF; /* left column background colour */
+            }
+
+            .threecol .col1
+            {
+                width: 29.4%; /* width of center column content (column width minus padding on either side) */
+                left: 100%; /* 100% plus left padding of center column */
+            }
+
+            .threecol .col2
+            {
+                width: 29.3%; /* Width of left column content (column width minus padding on either side) */
+                left: 35.3%; /* width of (right column) plus (center column left and right padding) plus (left column left padding) */
+            }
+
+            .threecol .col3
+            {
+                width: 29.3%; /* Width of right column content (column width minus padding on either side) */
+                left: 76.7%; /* Please make note of the brackets here:
+					(100% - left column width) plus (center column left and right padding) plus (left column left and right padding) plus (right column left padding) */
+            }
+
         -->
     </style>
     <section class="featured">
@@ -181,28 +252,45 @@
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <p>
         Welcome to the Home Grown Productions Event website. Where you can purchase tickets for all of the hot upcoming events hosted by Home Grown Productions.
-        Please check out the events page for ticket purchases. Also, we offer discounts for those who would like to become a preferred member. Registration is free!
+		Please check out the events page for ticket purchases. Also, we offer discounts for those who would like to become a preferred member. <b>Registration is free!</b>
     </p>
-    <div id="howtoWrapper">
-        <div>
-            <h2>How It Works</h2>
-        </div>
-        <div>
-            <div id="howtoLeft">
-                <h5>Find a Show</h5>
-                Search our listings for hot shows, concerts, and events.
-            </div>
-            <div>
-                <div id="howtoCenter">
+    <%--<div id="howtoWrapper">
+		<div>
+			<h2>How It Works</h2>
+		</div>
+		<div>
+			<div id="howtoLeft">
+				<h5>Find a Show</h5>
+				Search our listings for hot shows, concerts, and events.
+			</div>
+			<div id="howtoCenter">
+				<h5>Choose Your Seats</h5>
+				Found the best seats in the house? Reserve them right here before they fill up!
+			</div>
+			<div id="howtoRight">
+				<h5>Go</h5>
+				You can have your tickets mailed to you, or pick them up at the box office. Either way, you get in the door.
+			</div>
+		</div>
+	</div>--%>
+
+    <div class="colmask threecol">
+        <h2>How It Works</h2>
+        <div class="colmid">
+            <div class="colleft">
+                <div class="col1">
                     <h5>Choose Your Seats</h5>
                     Found the best seats in the house? Reserve them right here before they fill up!
                 </div>
-                <div id="howtoRight">
+                <div class="col2">
+                    <h5>Find a Show</h5>
+                    Search our listings for hot shows, concerts, and events.
+                </div>
+                <div class="col3">
                     <h5>Go</h5>
                     You can have your tickets mailed to you, or pick them up at the box office. Either way, you get in the door.
                 </div>
             </div>
-
         </div>
     </div>
 </asp:Content>
