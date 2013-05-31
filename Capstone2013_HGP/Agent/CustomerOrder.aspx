@@ -53,7 +53,8 @@
         <br />
         <br />
         Exisiting Customer?
-        <div id="exist" style="display:none;" runat="server">
+        <asp:RadioButton ID="radExist" runat="server" GroupName="custType" AutoPostBack="True" OnCheckedChanged="radExist_CheckedChanged" />
+        <div id="exist" style="display: none;" runat="server">
             <asp:Panel ID="pnlExist" runat="server">
                 <br />
                 Select the Customer:
@@ -62,11 +63,12 @@
                 <asp:SqlDataSource ID="ddlExisting" runat="server" ConnectionString="<%$ ConnectionStrings:CapstoneSQLConn %>" SelectCommand="spGrabCustomer" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
             </asp:Panel>
         </div>
-        <asp:RadioButton ID="radExist" runat="server" />
+
         <br />
         <br />
         New Customer?
-            <div id="newCust" style="display:none;" runat="server">
+        <asp:RadioButton ID="radNew" runat="server" GroupName="custType" AutoPostBack="True" OnCheckedChanged="radNew_CheckedChanged" />
+        <div id="newCust" style="display: none;" runat="server">
             <asp:Panel ID="pnlNew" runat="server">
                 <asp:Label ID="Label2" runat="server" Text="First Name: "></asp:Label>
                 <asp:TextBox ID="TextBox1" runat="server" Height="16px"></asp:TextBox>
@@ -96,7 +98,7 @@
                 &nbsp;<asp:TextBox ID="TextBox8" runat="server" Width="284px"></asp:TextBox>
             </asp:Panel>
         </div>
-        <asp:RadioButton ID="radNew" runat="server" />
+
         <br />
         <span style="margin-right: 10px;">Quantity to Order:</span><asp:TextBox ID="txtQty" runat="server" Columns="5" />
         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtQty" Display="Dynamic" ErrorMessage="Quantity of tickets is required." ForeColor="Red"></asp:RequiredFieldValidator>

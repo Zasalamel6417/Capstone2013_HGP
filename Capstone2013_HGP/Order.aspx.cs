@@ -60,7 +60,7 @@ namespace Capstone2013_HGP
 
             //Get Logged in user
             MembershipUser mu = Membership.GetUser();
-
+			
             //If the page is not a postback, Get the time check if it's less than 7 days.
             //If so, don't display the pickup check box.
             //Get total cost from hidden Details View, set it in the SessionProperty.
