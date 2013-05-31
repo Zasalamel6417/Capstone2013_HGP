@@ -31,13 +31,13 @@ namespace Capstone2013_HGP.Agent {
         protected global::System.Web.UI.WebControls.Label lblStatus;
         
         /// <summary>
-        /// radExist control.
+        /// chkMbr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton radExist;
+        protected global::System.Web.UI.WebControls.CheckBox chkMbr;
         
         /// <summary>
         /// exist control.
@@ -76,13 +76,13 @@ namespace Capstone2013_HGP.Agent {
         protected global::System.Web.UI.WebControls.SqlDataSource ddlExisting;
         
         /// <summary>
-        /// radNew control.
+        /// chkNew control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton radNew;
+        protected global::System.Web.UI.WebControls.CheckBox chkNew;
         
         /// <summary>
         /// newCust control.
@@ -112,13 +112,13 @@ namespace Capstone2013_HGP.Agent {
         protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// txtFName control.
+        /// TextBox1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFName;
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
         
         /// <summary>
         /// Label3 control.
@@ -130,13 +130,13 @@ namespace Capstone2013_HGP.Agent {
         protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// txtLName control.
+        /// TextBox2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLName;
+        protected global::System.Web.UI.WebControls.TextBox TextBox2;
         
         /// <summary>
         /// Label12 control.
@@ -166,13 +166,13 @@ namespace Capstone2013_HGP.Agent {
         protected global::System.Web.UI.WebControls.Label Label4;
         
         /// <summary>
-        /// txtAddress control.
+        /// TextBox3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAddress;
+        protected global::System.Web.UI.WebControls.TextBox TextBox3;
         
         /// <summary>
         /// Label5 control.
@@ -184,13 +184,13 @@ namespace Capstone2013_HGP.Agent {
         protected global::System.Web.UI.WebControls.Label Label5;
         
         /// <summary>
-        /// txtAdd2 control.
+        /// TextBox4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAdd2;
+        protected global::System.Web.UI.WebControls.TextBox TextBox4;
         
         /// <summary>
         /// Label6 control.
@@ -202,13 +202,13 @@ namespace Capstone2013_HGP.Agent {
         protected global::System.Web.UI.WebControls.Label Label6;
         
         /// <summary>
-        /// txtCity control.
+        /// TextBox5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCity;
+        protected global::System.Web.UI.WebControls.TextBox TextBox5;
         
         /// <summary>
         /// Label7 control.
@@ -220,13 +220,13 @@ namespace Capstone2013_HGP.Agent {
         protected global::System.Web.UI.WebControls.Label Label7;
         
         /// <summary>
-        /// txtState control.
+        /// TextBox6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtState;
+        protected global::System.Web.UI.WebControls.TextBox TextBox6;
         
         /// <summary>
         /// Label8 control.
@@ -238,13 +238,13 @@ namespace Capstone2013_HGP.Agent {
         protected global::System.Web.UI.WebControls.Label Label8;
         
         /// <summary>
-        /// txtZip control.
+        /// TextBox7 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtZip;
+        protected global::System.Web.UI.WebControls.TextBox TextBox7;
         
         /// <summary>
         /// Label9 control.
@@ -256,13 +256,13 @@ namespace Capstone2013_HGP.Agent {
         protected global::System.Web.UI.WebControls.Label Label9;
         
         /// <summary>
-        /// txtEmail control.
+        /// TextBox8 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmail;
+        protected global::System.Web.UI.WebControls.TextBox TextBox8;
         
         /// <summary>
         /// Label10 control.

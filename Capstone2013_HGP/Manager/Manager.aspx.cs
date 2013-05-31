@@ -34,7 +34,7 @@ namespace Capstone2013_HGP.Manager
                 {
                     int index = Convert.ToInt32(e.CommandArgument);
                     GridViewRow row = gvEvents.Rows[index];
-                    Response.Redirect("~/Agent/CustomerOrder.aspx?EventID=" + row.Cells[1].Text.ToString() + "&sectionID="+ row.Cells[9].Text.ToString());
+                    Response.Redirect("~/OrderInformation.aspx?EventID=" + row.Cells[1].Text.ToString() + "&sectionID="+ row.Cells[9].Text.ToString());
                 }
             }
             else
