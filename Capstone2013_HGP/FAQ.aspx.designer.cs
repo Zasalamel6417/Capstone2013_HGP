@@ -13,6 +13,15 @@ namespace Capstone2013_HGP {
     public partial class FAQ {
         
         /// <summary>
+        /// registerLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor registerLink;
+        
+        /// <summary>
         /// lblfrom control.
         /// </summary>
         /// <remarks>

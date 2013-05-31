@@ -9,17 +9,17 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            $("#headerone1").hover(function () {
-                $("#faqContents").slideToggle("slow");
-            });
+            //$("#headerone1").hover(function () {
+            //    $("#faqContents").slideToggle("slow");
+            //});
             $("#headerone1").click(function () {
                 $("#faqContents").slideToggle("slow");
             });
         });
         $(document).ready(function () {
-            $("#headertwo2").hover(function () {
-                $("#faqContents1").slideToggle("slow");
-            });
+            //$("#headertwo2").hover(function () {
+            //    $("#faqContents1").slideToggle("slow");
+            //});
             $("#headertwo2").click(function () {
                 $("#faqContents1").slideToggle("slow");
             });
@@ -28,6 +28,12 @@
             $("#headerthree3").click(function () {
                 $("#email").slideToggle("slow");
                 $("#hidden").text("");
+            });
+        });
+        $(document).ready(function () {
+            $("#headerfour4").click(function () {
+                $("#faqContents6").slideToggle("slow");
+
             });
         });
     </script>
@@ -79,6 +85,18 @@
             width: 500px;
             height: 230px;
         }
+        #faqContents6
+        {
+            display: none;
+            border: 1px solid limegreen;
+            width: 700px;
+            height: 100px;
+            margin-top: 10px;
+            padding: 1px;
+            font-family: Times New Roman’, Times, serif;
+            font-size: 16px;
+            background-color: lightcyan;
+        }
     </style>
     <div id="headone">
 
@@ -122,6 +140,18 @@
             </li>
         </ol>
     </div>
+    <div id="headerfour4">
+        <h2><i>How Do I register To the Site?</i></h2>
+    </div>
+    <div id="faqContents6">
+        <ol>
+            <li>Click the following link to Register to the site.
+            <ul>
+                <li><a id="registerLink" runat="server" href="~/Account/Register">Register</a></li>
+            </ul>
+            </li>
+        </ol>
+    </div>
     <div id="headerthree3">
         <h2><i>Other Questions And Comments:</i></h2>
     </div>
@@ -133,7 +163,7 @@
         <br />
         <asp:Label ID="lblsub" runat="server" Text="Subject:"></asp:Label>
         <asp:TextBox ID="txtsub" runat="server" Style="height: 15px"></asp:TextBox><br />
-        <asp:Label ID="lblbody" runat="server" Text="Type Question or Comments here..."></asp:Label><br />
+        <asp:Label ID="lblbody" runat="server" Text="Type Question or Comments below..."></asp:Label><br />
         <asp:TextBox ID="txtarea" runat="server" TextMode="MultiLine" Style="width: 280px;"></asp:TextBox><br />
         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*Message Body Can not be Empty" ControlToValidate="txtarea" Display="Dynamic" ForeColor="#FF3300"></asp:RequiredFieldValidator>
         <br />
