@@ -3,63 +3,63 @@
 <asp:Content runat="server" ID="FeaturedContent" ContentPlaceHolderID="FeaturedContent">
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 	<script type="text/javascript">
-		$(document).ready(function () {
-			var currentPosition = 0;
-			var slideWidth = 560;
-			var slides = $('.slide');
-			var numberOfSlides = slides.length;
+	    $(document).ready(function () {
+	        var currentPosition = 0;
+	        var slideWidth = 560;
+	        var slides = $('.slide');
+	        var numberOfSlides = slides.length;
 
-			// Remove scrollbar in JS
-			$('#slidesContainer').css('overflow', 'hidden');
+	        // Remove scrollbar in JS
+	        $('#slidesContainer').css('overflow', 'hidden');
 
-			// Wrap all .slides with #slideInner div
-			slides
+	        // Wrap all .slides with #slideInner div
+	        slides
 			  .wrapAll('<div id="slideInner"></div>')
 			  // Float left to display horizontally, readjust .slides width
 			  .css({
-				  'float': 'left',
-				  'width': slideWidth
+			      'float': 'left',
+			      'width': slideWidth
 			  });
 
-			// Set #slideInner width equal to total width of all slides
-			$('#slideInner').css('width', slideWidth * numberOfSlides);
+	        // Set #slideInner width equal to total width of all slides
+	        $('#slideInner').css('width', slideWidth * numberOfSlides);
 
-			// Insert controls in the DOM
-			$('#slideshow')
+	        // Insert controls in the DOM
+	        $('#slideshow')
 			  .prepend('<span class="control" id="leftControl">Clicking moves left</span>')
 			  .append('<span class="control" id="rightControl">Clicking moves right</span>');
 
-			// Hide left arrow control on first load
-			manageControls(currentPosition);
+	        // Hide left arrow control on first load
+	        manageControls(currentPosition);
 
-			// Create event listeners for .controls clicks
-			$('.control')
+	        // Create event listeners for .controls clicks
+	        $('.control')
 			  .bind('click', function () {
-				  // Determine new position
-				  currentPosition = ($(this).attr('id') == 'rightControl') ? currentPosition + 1 : currentPosition - 1;
+			      // Determine new position
+			      currentPosition = ($(this).attr('id') == 'rightControl') ? currentPosition + 1 : currentPosition - 1;
 
-				  // Hide / show controls
-				  manageControls(currentPosition);
-				  // Move slideInner using margin-left
-				  $('#slideInner').animate({
-					  'marginLeft': slideWidth * (-currentPosition)
-				  });
+			      // Hide / show controls
+			      manageControls(currentPosition);
+			      // Move slideInner using margin-left
+			      $('#slideInner').animate({
+			          'marginLeft': slideWidth * (-currentPosition)
+			      });
 			  });
 
-			// manageControls: Hides and Shows controls depending on currentPosition
-			function manageControls(position) {
-				// Hide left arrow if position is first slide
-				if (position == 0) {
-					$('#leftControl').hide();
-				} else {
-					$('#leftControl').show();
-				}
-				// Hide right arrow if position is last slide
-				if (position == numberOfSlides - 1) {
-					$('#rightControl').hide();
-				} else { $('#rightControl').show(); }
-			}
-		});
+	        // manageControls: Hides and Shows controls depending on currentPosition
+	        function manageControls(position) {
+	            // Hide left arrow if position is first slide
+	            if (position == 0) {
+	                $('#leftControl').hide();
+	            } else {
+	                $('#leftControl').show();
+	            }
+	            // Hide right arrow if position is last slide
+	            if (position == numberOfSlides - 1) {
+	                $('#rightControl').hide();
+	            } else { $('#rightControl').show(); }
+	        }
+	    });
 	</script>
 	<style type="text/css">
 		<!--
@@ -210,4 +210,30 @@
 			</div>
 		</div>
 	</section>
+</asp:Content>
+<asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
+	<p>
+		Welcome to the Home Grown Productions Event website. Where you can purchase tickets for all of the hot upcoming events hosted by Home Grown Productions.
+		Please check out the events page for ticket purchases. Also, we offer discounts for those who would like to become a preferred member. <b>Registration is free!</b>
+	</p>
+	
+	<div class="colmask threecol">
+		<h2>How It Works</h2>
+		<div class="colmid">
+			<div class="colleft">
+				<div class="col1">
+					<h5>Choose Your Seats</h5>
+					Found the best seats in the house? Reserve them right here before they fill up!
+				</div>
+				<div class="col2">
+					<h5>Find a Show</h5>
+					Search our listings for hot shows, concerts, and events.
+				</div>
+				<div class="col3">
+					<h5>Go</h5>
+					You can have your tickets mailed to you, or pick them up at the box office. Either way, you get in the door.
+				</div>
+			</div>
+		</div>
+	</div>
 </asp:Content>
