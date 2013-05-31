@@ -47,6 +47,30 @@
                                 <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" />
                                 </p>
                             </LoggedInTemplate>
+                            <RoleGroups>
+                                <asp:RoleGroup Roles="Manager">
+                                    <ContentTemplate>
+                                        <p>
+                                    Welcome, <a id="A1" runat="server" class="username" href="~/Account/Manage" title="Manage your account">
+                                        <asp:LoginName ID="LoginName1" runat="server" CssClass="username" />
+                                    </a>!
+                                            <p><a href="~/Manager/Manager.aspx">Manager Console</a></p>
+                                <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" />
+                                </p>
+                                    </ContentTemplate>
+                                </asp:RoleGroup>
+                                <asp:RoleGroup Roles="Agent">
+                                    <ContentTemplate>
+                                        <p>
+                                    Welcome, <a id="A1" runat="server" class="username" href="~/Account/Manage" title="Manage your account">
+                                        <asp:LoginName ID="LoginName1" runat="server" CssClass="username" />
+                                    </a>!
+                                            <p><a href="~/Agent/Agent.aspx">Agent Console</a></p>
+                                <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" />
+                                </p>
+                                    </ContentTemplate>
+                                </asp:RoleGroup>
+                            </RoleGroups>
                         </asp:LoginView>
                     </section>
                     <nav>
