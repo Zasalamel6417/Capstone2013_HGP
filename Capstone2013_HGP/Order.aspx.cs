@@ -19,6 +19,8 @@ namespace Capstone2013_HGP
 
         double tax = .0525;
 
+	    private string custEmail = String.Empty;
+
         string SubTotal
         {
             get
@@ -55,11 +57,21 @@ namespace Capstone2013_HGP
             }
         }
 
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
             //Get Logged in user
             MembershipUser mu = Membership.GetUser();
+			SqlConnection sqlConn = new SqlConnection(connStr);
+			if (Request.QueryString["cust"] != null)
+			{
+				SqlCommand sqlEmail = new SqlCommand("SELECT email FROM Customer WHERE custID=@id", sqlConn);
+				sqlEmail.Parameters.Add(new SqlParameter("@id", Request.QueryString["cust"]));
+				sqlConn.Open();
+				custEmail = (string)sqlEmail.ExecuteScalar();
+				sqlConn.Close();
+			}
 			
             //If the page is not a postback, Get the time check if it's less than 7 days.
             //If so, don't display the pickup check box.
@@ -110,15 +122,21 @@ namespace Capstone2013_HGP
                 //If user exists, Determin if the user is a member. If so, set the discount recieved to 15%
                 if (mu != null)
                 {
-                    txtEmail.Text = mu.Email;
+					if (custEmail.Equals(String.Empty))
+					{
+						custEmail = mu.Email;
+					}
+
+                    txtEmail.Text = custEmail;
                     txtEmail.Enabled = false;
 
-                    SqlConnection sqlConn = new SqlConnection(connStr);
+                    
                     SqlCommand sqlCmd = new SqlCommand("SELECT isMember FROM Customer WHERE email=@email", sqlConn);
-                    sqlCmd.Parameters.Add(new SqlParameter("@email", mu.Email));
+                    sqlCmd.Parameters.Add(new SqlParameter("@email", custEmail));
                     sqlConn.Open();
 
                     member = (bool)sqlCmd.ExecuteScalar();
+					sqlConn.Close();
 
                     if (member)
                     {
@@ -166,7 +184,8 @@ namespace Capstone2013_HGP
 			MembershipUser mu = Membership.GetUser();
 			SqlConnection sqlConn = new SqlConnection(connStr);
 			SqlCommand sqlCmd = new SqlCommand("SELECT custID FROM Customer WHERE email=@email", sqlConn);
-			sqlCmd.Parameters.Add(new SqlParameter("@email", mu.Email));
+			//sqlCmd.Parameters.Add(new SqlParameter("@email", mu.Email));
+			sqlCmd.Parameters.Add(new SqlParameter("@email", custEmail));
 			sqlConn.Open();
 			int custID = ((int)sqlCmd.ExecuteScalar());
 

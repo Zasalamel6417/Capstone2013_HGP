@@ -31,6 +31,15 @@ namespace Capstone2013_HGP.Agent {
         protected global::System.Web.UI.WebControls.Label lblStatus;
         
         /// <summary>
+        /// radExist control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton radExist;
+        
+        /// <summary>
         /// exist control.
         /// </summary>
         /// <remarks>
@@ -67,13 +76,13 @@ namespace Capstone2013_HGP.Agent {
         protected global::System.Web.UI.WebControls.SqlDataSource ddlExisting;
         
         /// <summary>
-        /// radExist control.
+        /// radNew control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton radExist;
+        protected global::System.Web.UI.WebControls.RadioButton radNew;
         
         /// <summary>
         /// newCust control.
@@ -236,15 +245,6 @@ namespace Capstone2013_HGP.Agent {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBox8;
-        
-        /// <summary>
-        /// radNew control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton radNew;
         
         /// <summary>
         /// txtQty control.

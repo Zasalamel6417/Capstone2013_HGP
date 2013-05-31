@@ -58,7 +58,7 @@
             <asp:Panel ID="pnlExist" runat="server">
                 <br />
                 Select the Customer:
-            <asp:DropDownList ID="ddlCustomer" runat="server" DataSourceID="ddlExisting" DataTextField="Column1" DataValueField="Column1">
+            <asp:DropDownList ID="ddlCustomer" runat="server" DataSourceID="ddlExisting" DataTextField="Name" DataValueField="ID">
             </asp:DropDownList>
                 <asp:SqlDataSource ID="ddlExisting" runat="server" ConnectionString="<%$ ConnectionStrings:CapstoneSQLConn %>" SelectCommand="spGrabCustomer" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
             </asp:Panel>

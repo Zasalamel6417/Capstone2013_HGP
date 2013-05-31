@@ -35,24 +35,6 @@ namespace Capstone2013_HGP.Agent
 
 			if (IsPostBack)
 			{
-				//if (radExist.Checked)
-				//{
-				//	exist.Attributes["style"] = "display: block;";
-				//}
-				//else
-				//{
-				//	exist.Attributes["style"] = "display: none;";
-				//}
-
-				//if (radNew.Checked)
-				//{
-				//	newCust.Attributes["style"] = "display: block;";
-				//}
-				//else
-				//{
-				//	newCust.Attributes["style"] = "display: none;";
-				//}
-
 				if (radNew.Checked)
 				{
 					pnlNew.Visible = true;
@@ -96,27 +78,19 @@ namespace Capstone2013_HGP.Agent
 				}
 				else
 				{
-					Response.Redirect("~/Order.aspx?EventId=" + eventID + "&Qty=" + quantity.ToString() + "&sectionID=" + dvInfo.Rows[11].Cells[1].Text);
+					string url = "~/Order.aspx?EventId=" + eventID + "&Qty=" + quantity.ToString() + "&sectionID=" + dvInfo.Rows[11].Cells[1].Text;
+
+					if(radExist.Checked){
+						url = url + "&cust=" + ddlCustomer.SelectedValue;
+					}
+
+					Response.Redirect(url);
 				}
 			}
 			else
 			{
 				Response.Redirect("~/Account/Login.aspx");
 			}
-		}
-
-		//protected void chkMbr_CheckedChanged(object sender, EventArgs e)
-		//{
-		//	pnlExist.Visible = true;
-		//	if (!chkMbr.Checked)
-		//	{
-		//		pnlExist.Visible = false;
-		//	}
-		//}
-		
-		protected void chkNew_CheckedChanged(object sender, EventArgs e)
-		{
-			pnlNew.Visible = true;
 		}
 
 		protected void radNew_CheckedChanged(object sender, EventArgs e)
