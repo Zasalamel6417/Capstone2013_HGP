@@ -74,8 +74,6 @@
                 <asp:TextBox ID="txtFName" runat="server" Height="16px"></asp:TextBox>
                 &nbsp;<asp:Label ID="Label3" runat="server" Text="Last Name:"></asp:Label>
                 <asp:TextBox ID="txtLName" runat="server"></asp:TextBox>
-                &nbsp;<asp:Label ID="Label12" runat="server" Text="Age:"></asp:Label>
-                <asp:TextBox ID="txtAge" runat="server"></asp:TextBox>
                 <br />
                 <br />
                 <asp:Label ID="Label4" runat="server" Text="Address:"></asp:Label>
@@ -90,18 +88,14 @@
                 <asp:TextBox ID="txtCity" runat="server"></asp:TextBox>
                 &nbsp;
             <asp:Label ID="Label7" runat="server" Text="State:"></asp:Label>
-                &nbsp;<asp:TextBox ID="txtState" runat="server" Width="39px" MaxLength="2"></asp:TextBox>
+                &nbsp;<asp:TextBox ID="txtState" runat="server" Width="39px"></asp:TextBox>
                 &nbsp;
             <asp:Label ID="Label8" runat="server" Text="ZIP"></asp:Label>
-                &nbsp;<asp:TextBox ID="txtZip" runat="server" Width="85px" MaxLength="5"></asp:TextBox>
+                &nbsp;<asp:TextBox ID="txtZip" runat="server" Width="85px"></asp:TextBox>
                 <br />
                 <br />
                 <asp:Label ID="Label9" runat="server" Text="Email:"></asp:Label>
                 &nbsp;<asp:TextBox ID="txtEmail" runat="server" Width="284px"></asp:TextBox>
-                <asp:Label ID="Label10" runat="server" Text="Become a Member?"></asp:Label>
-                <asp:CheckBox ID="chkMbr" runat="server" />
-                &nbsp;<asp:Label ID="Label11" runat="server" Text="Receive Newsletter?"></asp:Label>
-                <asp:CheckBox ID="chkNewsletter" runat="server" />
             </asp:Panel>
         </div>
         <br />
