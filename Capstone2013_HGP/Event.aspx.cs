@@ -41,7 +41,7 @@ namespace Capstone2013_HGP
             }
             else
             {
-                Response.Redirect("~/Account/Login.aspx");
+                Response.Redirect("~/Account/Login.aspx?ReturnUrl=%2fEvents.aspx");
             }
         }
         /// <summary>
