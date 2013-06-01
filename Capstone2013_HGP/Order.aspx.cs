@@ -64,7 +64,7 @@ namespace Capstone2013_HGP
             //Get Logged in user
             MembershipUser mu = Membership.GetUser();
 			SqlConnection sqlConn = new SqlConnection(connStr);
-<<<<<<< HEAD
+
 			if (Request.QueryString["cust"] != null)
 			{
 				SqlCommand sqlEmail = new SqlCommand("SELECT email FROM Customer WHERE custID=@id", sqlConn);
@@ -77,7 +77,7 @@ namespace Capstone2013_HGP
 			{
 				custEmail = mu.Email;
 			}
-=======
+
             if (Request.QueryString["cust"] != null)
             {
                 SqlCommand sqlEmail = new SqlCommand("SELECT email FROM Customer WHERE custID=@id", sqlConn);
@@ -90,7 +90,7 @@ namespace Capstone2013_HGP
             {
                 custEmail = mu.Email;
             }
->>>>>>> fceafb964c528f7e12954b4b1476398b934438da
+
 			
             //If the page is not a postback, Get the time check if it's less than 7 days.
             //If so, don't display the pickup check box.
