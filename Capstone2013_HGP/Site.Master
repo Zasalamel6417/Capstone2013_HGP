@@ -54,7 +54,7 @@
                                     Welcome, <a id="A1" runat="server" class="username" href="~/Account/Manage" title="Manage your account">
                                         <asp:LoginName ID="LoginName1" runat="server" CssClass="username" />
                                     </a>!
-                                            <p><a href="~/Manager/Manager.aspx">Manager Console</a></p>
+                                            <p><a runat="server" href="~/Manager/Manager.aspx">Manager Console</a></p>
                                 <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" />
                                 </p>
                                     </ContentTemplate>
@@ -65,7 +65,7 @@
                                     Welcome, <a id="A1" runat="server" class="username" href="~/Account/Manage" title="Manage your account">
                                         <asp:LoginName ID="LoginName1" runat="server" CssClass="username" />
                                     </a>!
-                                            <p><a href="~/Agent/Agent.aspx">Agent Console</a></p>
+                                            <p><a runat="server" href="~/Agent/Agent.aspx">Agent Console</a></p>
                                 <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" />
                                 </p>
                                     </ContentTemplate>

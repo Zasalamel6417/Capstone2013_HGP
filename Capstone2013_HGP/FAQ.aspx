@@ -109,7 +109,9 @@
             box-shadow: inset 0 1px rgba(255, 255, 255, 0.3),inset 0 10px rgba(255, 255, 255, 0.2), inset 0 10px 20px rgba(255, 255, 255, 0.25), inset 0 -15px 30px rgba(0, 0, 0, 0.3);
         }
 
-
+        #headerone1, #headertwo2, #headerthree3, #headerfour4 {
+            cursor: pointer;
+        }
 
         #email
         {
