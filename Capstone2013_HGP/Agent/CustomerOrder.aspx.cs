@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
@@ -18,8 +15,8 @@ namespace Capstone2013_HGP.Agent
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //pnlExist.Visible = false;
-           // pnlNew.Visible = false;
+            pnlExist.Visible = false;
+            pnlNew.Visible = false;
 
             if (!IsPostBack)
             {
@@ -38,23 +35,23 @@ namespace Capstone2013_HGP.Agent
 
             if (IsPostBack)
             {
-                if (radExist.Checked)
-                {
-                    exist.Attributes["style"] = "display: block;";
-                }
-                else
-                {
-                    exist.Attributes["style"] = "display: none;";
-                }
+                //if (radExist.Checked)
+                //{
+                //    exist.Attributes["style"] = "display: block;";
+                //}
+                //else
+                //{
+                //    exist.Attributes["style"] = "display: none;";
+                //}
 
-                if (radNew.Checked && radExist.Checked)
-                {
-                    newCust.Attributes["style"] = "display: block;";
-                }
-                else
-                {
-                    newCust.Attributes["style"] = "display: none;";
-                }
+                //if (radNew.Checked)
+                //{
+                //    newCust.Attributes["style"] = "display: block;";
+                //}
+                //else
+                //{
+                //    newCust.Attributes["style"] = "display: none;";
+                //}
 
 
             }
@@ -62,16 +59,6 @@ namespace Capstone2013_HGP.Agent
 
         protected void btnOrder_Click(object sender, EventArgs e)
         {
-            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["CapstoneSQLConn"].ToString()))
-            {
-                using (SqlCommand cmd = new SqlCommand("reserveTiks", con))
-                {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add("@quantity", SqlDbType.Int).Value = Convert.ToInt32(txtQty.Text);
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                }
-            }
 
             //Get logged in user
             MembershipUser mu = Membership.GetUser();
@@ -99,5 +86,18 @@ namespace Capstone2013_HGP.Agent
             }
         }
 
+        protected void chkMbr_CheckedChanged(object sender, EventArgs e)
+        {
+            pnlExist.Visible = true;
+            if (!chkMbr.Checked)
+            {
+                pnlExist.Visible = false;
+            }
+        }
+
+        protected void chkNew_CheckedChanged(object sender, EventArgs e)
+        {
+            pnlNew.Visible = true;
+        }
     }
 }

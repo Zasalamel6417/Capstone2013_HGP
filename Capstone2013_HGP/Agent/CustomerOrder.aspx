@@ -53,8 +53,7 @@
         <br />
         <br />
         Exisiting Customer?
-                <asp:RadioButton ID="radExist" runat="server" AutoPostBack="True" />
-        <div id="exist" style="display: none;" runat="server">
+        <div id="exist" style="display:none;" runat="server">
             <asp:Panel ID="pnlExist" runat="server">
                 <br />
                 Select the Customer:
@@ -63,41 +62,41 @@
                 <asp:SqlDataSource ID="ddlExisting" runat="server" ConnectionString="<%$ ConnectionStrings:CapstoneSQLConn %>" SelectCommand="spGrabCustomer" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
             </asp:Panel>
         </div>
-
+        <asp:RadioButton ID="radExist" runat="server" />
         <br />
         <br />
         New Customer?
-                <asp:RadioButton ID="radNew" runat="server" AutoPostBack="True"/>
-        <div id="newCust" style="display: none;" runat="server">
+            <div id="newCust" style="display:none;" runat="server">
             <asp:Panel ID="pnlNew" runat="server">
                 <asp:Label ID="Label2" runat="server" Text="First Name: "></asp:Label>
-                <asp:TextBox ID="txtFName" runat="server" Height="16px"></asp:TextBox>
+                <asp:TextBox ID="TextBox1" runat="server" Height="16px"></asp:TextBox>
                 &nbsp;<asp:Label ID="Label3" runat="server" Text="Last Name:"></asp:Label>
-                <asp:TextBox ID="txtLName" runat="server"></asp:TextBox>
+                <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
                 <br />
                 <br />
                 <asp:Label ID="Label4" runat="server" Text="Address:"></asp:Label>
-                <asp:TextBox ID="txtAddress" runat="server" Width="382px"></asp:TextBox>
+                <asp:TextBox ID="TextBox3" runat="server" Width="382px"></asp:TextBox>
                 <br />
                 <br />
                 <asp:Label ID="Label5" runat="server" Text="Address 2nd Line:"></asp:Label>
-                <asp:TextBox ID="txtAdd2" runat="server" Width="89px"></asp:TextBox>
+                <asp:TextBox ID="TextBox4" runat="server" Width="89px"></asp:TextBox>
                 <br />
                 <br />
                 <asp:Label ID="Label6" runat="server" Text="City:"></asp:Label>
-                <asp:TextBox ID="txtCity" runat="server"></asp:TextBox>
+                <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
                 &nbsp;
             <asp:Label ID="Label7" runat="server" Text="State:"></asp:Label>
-                &nbsp;<asp:TextBox ID="txtState" runat="server" Width="39px"></asp:TextBox>
+                &nbsp;<asp:TextBox ID="TextBox6" runat="server" Width="39px"></asp:TextBox>
                 &nbsp;
             <asp:Label ID="Label8" runat="server" Text="ZIP"></asp:Label>
-                &nbsp;<asp:TextBox ID="txtZip" runat="server" Width="85px"></asp:TextBox>
+                &nbsp;<asp:TextBox ID="TextBox7" runat="server" Width="85px"></asp:TextBox>
                 <br />
                 <br />
                 <asp:Label ID="Label9" runat="server" Text="Email:"></asp:Label>
-                &nbsp;<asp:TextBox ID="txtEmail" runat="server" Width="284px"></asp:TextBox>
+                &nbsp;<asp:TextBox ID="TextBox8" runat="server" Width="284px"></asp:TextBox>
             </asp:Panel>
         </div>
+        <asp:RadioButton ID="radNew" runat="server" />
         <br />
         <span style="margin-right: 10px;">Quantity to Order:</span><asp:TextBox ID="txtQty" runat="server" Columns="5" />
         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtQty" Display="Dynamic" ErrorMessage="Quantity of tickets is required." ForeColor="Red"></asp:RequiredFieldValidator>
