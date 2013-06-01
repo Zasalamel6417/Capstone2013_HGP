@@ -4,8 +4,59 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+    <script src="Scripts/jQueryRotate.2.2.js"></script>
 
     <script type="text/javascript">
+
+        var bool1 = false;
+        var bool2 = false;
+        var bool3 = false;
+        var bool4 = false;
+
+        function rotateImage1() {
+            
+            if (bool1 == false) {
+                $('#arrowImg1').rotate(90);
+                bool1 = true;
+            }
+            else {
+                $('#arrowImg1').rotate(0);
+                bool1 = false;
+            }
+        }
+
+        function rotateImage2() {
+            if (bool2 == false) {
+                $('#arrowImg2').rotate(90);
+                bool2 = true;
+            }
+            else {
+                $('#arrowImg2').rotate(0);
+                bool2 = false;
+            }
+        }
+
+        function rotateImage3() {
+            if (bool3 == false) {
+                $('#arrowImg3').rotate(90);
+                bool3 = true;
+            }
+            else {
+                $('#arrowImg3').rotate(0);
+                bool3 = false;
+            }
+        }
+
+        function rotateImage4() {
+            if (bool4 == false) {
+                $('#arrowImg4').rotate(90);
+                bool4 = true;
+            }
+            else {
+                $('#arrowImg4').rotate(0);
+                bool4 = false;
+            }
+        }
 
         $(document).ready(function () {
 
@@ -18,7 +69,7 @@
             $("#headerone1").click(function () {
 
                 $("#faqContents").slideToggle("slow");
-
+                rotateImage1();
             });
 
         });
@@ -34,7 +85,7 @@
             $("#headertwo2").click(function () {
 
                 $("#faqContents1").slideToggle("slow");
-
+                rotateImage2();
             });
 
         });
@@ -46,7 +97,7 @@
                 $("#email").slideToggle("slow");
 
                 $("#hidden").text("");
-
+                rotateImage4();
             });
 
         });
@@ -57,7 +108,7 @@
 
                 $("#faqContents6").slideToggle("slow");
 
-
+                rotateImage3();
 
             });
 
@@ -134,6 +185,13 @@
             font-size: 16px;
             background-color: lightcyan;
         }
+
+        #arrowImg1,#arrowImg2,#arrowImg3,#arrowImg4 {
+            display:inline-block;
+            width:15px;
+            height:15px;
+            padding-left:5px;
+        }
     </style>
     
     <hgroup class="title">
@@ -143,7 +201,7 @@
 
     <div id="headerone1">
 
-        <h3><i>How Do I purchase A Ticket?</i></h3>
+        <h3 style="display:inline;"><i>How Do I purchase A Ticket?</i></h3><img id="arrowImg1" src="Images/arrow_right.png" />
 
     </div>
 
@@ -183,7 +241,7 @@
 
     <div id="headertwo2">
 
-        <h3><i>How Do I Cancel a purchased ticket?</i></h3>
+        <h3 style="display:inline;"><i>How Do I Cancel a purchased ticket?</i></h3><img id="arrowImg2" src="Images/arrow_right.png" />
 
     </div>
 
@@ -217,7 +275,7 @@
 
     <div id="headerfour4">
 
-        <h3><i>How Do I register To the Site?</i></h3>
+        <h3 style="display:inline;"><i>How Do I register To the Site?</i></h3> <img id="arrowImg3" src="Images/arrow_right.png" />
 
     </div>
 
@@ -241,7 +299,7 @@
 
     <div id="headerthree3">
 
-        <h3><i>Other Questions And Comments:</i></h3>
+        <h3 style="display:inline;"><i>Other Questions And Comments:</i></h3><img id="arrowImg4" src="Images/arrow_right.png" />
 
     </div>
 
