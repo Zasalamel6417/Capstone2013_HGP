@@ -72,6 +72,10 @@ namespace Capstone2013_HGP
 				custEmail = (string)sqlEmail.ExecuteScalar();
 				sqlConn.Close();
 			}
+			else
+			{
+				custEmail = mu.Email;
+			}
 			
             //If the page is not a postback, Get the time check if it's less than 7 days.
             //If so, don't display the pickup check box.
@@ -122,10 +126,7 @@ namespace Capstone2013_HGP
                 //If user exists, Determin if the user is a member. If so, set the discount recieved to 15%
                 if (mu != null)
                 {
-					if (custEmail.Equals(String.Empty))
-					{
-						custEmail = mu.Email;
-					}
+					
 
                     txtEmail.Text = custEmail;
                     txtEmail.Enabled = false;
@@ -191,52 +192,53 @@ namespace Capstone2013_HGP
 
             if (radPaypal.Checked)
             {
-                PayPalAPIAAInterfaceClient paypalAAInt = new PayPalAPIAAInterfaceClient();
-                string hosting = ConfigurationManager.AppSettings["HostingPrefix"];
+				//PayPalAPIAAInterfaceClient paypalAAInt = new PayPalAPIAAInterfaceClient();
+				//string hosting = ConfigurationManager.AppSettings["HostingPrefix"];
 
-                CustomSecurityHeaderType type = new CustomSecurityHeaderType();
-                type.Credentials = new UserIdPasswordType()
-                {
-                    Username = ConfigurationManager.AppSettings["PP_APIUsername"],
-                    Password = ConfigurationManager.AppSettings["PP_APIPassword"],
-                    Signature = ConfigurationManager.AppSettings["PP_APISignature"]
-                };
+				//CustomSecurityHeaderType type = new CustomSecurityHeaderType();
+				//type.Credentials = new UserIdPasswordType()
+				//{
+				//	Username = ConfigurationManager.AppSettings["PP_APIUsername"],
+				//	Password = ConfigurationManager.AppSettings["PP_APIPassword"],
+				//	Signature = ConfigurationManager.AppSettings["PP_APISignature"]
+				//};
 
-                SetExpressCheckoutRequestDetailsType sdt = new SetExpressCheckoutRequestDetailsType();
-                sdt.NoShipping = "1";
-                PaymentDetailsType pdt = new PaymentDetailsType()
-                {
-					OrderDescription = "HGP Event Ticket Purchase: " + dvOrderInfo.Rows[2].Cells[1].Text,
-                    OrderTotal = new BasicAmountType()
-                    {
-                        currencyID = CurrencyCodeType.USD,
-                        Value = Convert.ToDecimal(Regex.Replace(txtDetailTotal.Text, "[^0-9.]", "")).ToString()
-                    },
-					PaymentAction = PaymentActionCodeType.Sale,
-					PaymentActionSpecified = true,
-                };
+				//SetExpressCheckoutRequestDetailsType sdt = new SetExpressCheckoutRequestDetailsType();
+				//sdt.NoShipping = "1";
+				//PaymentDetailsType pdt = new PaymentDetailsType()
+				//{
+				//	OrderDescription = "HGP Event Ticket Purchase: " + dvOrderInfo.Rows[2].Cells[1].Text,
+				//	OrderTotal = new BasicAmountType()
+				//	{
+				//		currencyID = CurrencyCodeType.USD,
+				//		Value = Convert.ToDecimal(Regex.Replace(txtDetailTotal.Text, "[^0-9.]", "")).ToString()
+				//	},
+				//	PaymentAction = PaymentActionCodeType.Sale,
+				//	PaymentActionSpecified = true,
+				//};
 
-                sdt.PaymentDetails = new PaymentDetailsType[] { pdt };
-                sdt.CancelURL = hosting + "Default.aspx";
-				sdt.ReturnURL = hosting + "ThankYou.aspx?custID=" + custID.ToString();
+				//sdt.PaymentDetails = new PaymentDetailsType[] { pdt };
+				//sdt.CancelURL = hosting + "Default.aspx";
+				//sdt.ReturnURL = hosting + "ThankYou.aspx?custID=" + custID.ToString();
 
-                SetExpressCheckoutReq req = new SetExpressCheckoutReq()
-                {
-                    SetExpressCheckoutRequest = new SetExpressCheckoutRequestType()
-                    {
-                        SetExpressCheckoutRequestDetails = sdt,
-                        Version = "60.0"
-                    }
-                };
+				//SetExpressCheckoutReq req = new SetExpressCheckoutReq()
+				//{
+				//	SetExpressCheckoutRequest = new SetExpressCheckoutRequestType()
+				//	{
+				//		SetExpressCheckoutRequestDetails = sdt,
+				//		Version = "60.0"
+				//	}
+				//};
 
-                var resp = paypalAAInt.SetExpressCheckout(ref type, req);
-                if (resp.Errors != null && resp.Errors.Length > 0)
-                {
-                    // errors occured
-                    throw new Exception("Exception(s) occured when calling PayPal. First exception: " +
-                        resp.Errors[0].LongMessage);
-                }
+				//var resp = paypalAAInt.SetExpressCheckout(ref type, req);
+				//if (resp.Errors != null && resp.Errors.Length > 0)
+				//{
+				//	// errors occured
+				//	throw new Exception("Exception(s) occured when calling PayPal. First exception: " +
+				//		resp.Errors[0].LongMessage);
+				//}
 
+	            var resp = GetPayPalResponse(custID);
 				SubmitOrder(Convert.ToInt32(ddlDiscount.SelectedValue));
 
                 Response.Redirect(string.Format("{0}?cmd=_express-checkout&token={1}",
@@ -381,5 +383,60 @@ namespace Capstone2013_HGP
 
             sqlConn.Close();
         }
+		
+		/// <summary>
+		/// Builds the response information for Paypal.
+		/// </summary>
+		/// <param name="custID"></param>
+		/// <returns>Returns Paypal's response for token.</returns>
+	    private SetExpressCheckoutResponseType GetPayPalResponse(int custID){
+			PayPalAPIAAInterfaceClient paypalAAInt = new PayPalAPIAAInterfaceClient();
+			string hosting = ConfigurationManager.AppSettings["HostingPrefix"];
+
+			CustomSecurityHeaderType type = new CustomSecurityHeaderType();
+			type.Credentials = new UserIdPasswordType()
+			{
+				Username = ConfigurationManager.AppSettings["PP_APIUsername"],
+				Password = ConfigurationManager.AppSettings["PP_APIPassword"],
+				Signature = ConfigurationManager.AppSettings["PP_APISignature"]
+			};
+
+			SetExpressCheckoutRequestDetailsType sdt = new SetExpressCheckoutRequestDetailsType();
+			sdt.NoShipping = "1";
+			PaymentDetailsType pdt = new PaymentDetailsType()
+			{
+				OrderDescription = "HGP Event Ticket Purchase: " + dvOrderInfo.Rows[2].Cells[1].Text,
+				OrderTotal = new BasicAmountType()
+				{
+					currencyID = CurrencyCodeType.USD,
+					Value = Convert.ToDecimal(Regex.Replace(txtDetailTotal.Text, "[^0-9.]", "")).ToString()
+				},
+				PaymentAction = PaymentActionCodeType.Sale,
+				PaymentActionSpecified = true,
+			};
+
+			sdt.PaymentDetails = new PaymentDetailsType[] { pdt };
+			sdt.CancelURL = hosting + "Default.aspx";
+			sdt.ReturnURL = hosting + "ThankYou.aspx?custID=" + custID.ToString();
+
+			SetExpressCheckoutReq req = new SetExpressCheckoutReq()
+			{
+				SetExpressCheckoutRequest = new SetExpressCheckoutRequestType()
+				{
+					SetExpressCheckoutRequestDetails = sdt,
+					Version = "60.0"
+				}
+			};
+
+			var resp = paypalAAInt.SetExpressCheckout(ref type, req);
+			if (resp.Errors != null && resp.Errors.Length > 0)
+			{
+				// errors occured
+				throw new Exception("Exception(s) occured when calling PayPal. First exception: " +
+					resp.Errors[0].LongMessage);
+			}
+
+		    return resp;
+	    }
     }
 }
